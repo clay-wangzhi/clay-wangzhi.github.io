@@ -1,1 +1,1486 @@
-<!-- build time:Sun Aug 05 2018 08:09:17 GMT+0800 (中国标准时间) --><!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=6.3.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=6.3.0"><link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"6.3.0",sidebar:{position:"left","Pisces | Gemini":240,display:"always",offset:12,b2t:!0,scrollpercent:!0,onmobile:!1},fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="最简单的 awk 程序是一个由多个 模式–动作 语句构成的序列:pattern { action }pattern { action }…"><meta name="keywords" content="awk"><meta property="og:type" content="article"><meta property="og:title" content="awk（4）-Awk语言（上）"><meta property="og:url" content="https://clay-wangzhi.github.io/2018/07/27/awk（4）/index.html"><meta property="og:site_name" content="Clay&#39;s Blog"><meta property="og:description" content="最简单的 awk 程序是一个由多个 模式–动作 语句构成的序列:pattern { action }pattern { action }…"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://clay-wangzhi.github.io/images/awk1.png"><meta property="og:updated_time" content="2018-07-27T11:05:20.006Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="awk（4）-Awk语言（上）"><meta name="twitter:description" content="最简单的 awk 程序是一个由多个 模式–动作 语句构成的序列:pattern { action }pattern { action }…"><meta name="twitter:image" content="https://clay-wangzhi.github.io/images/awk1.png"><link rel="canonical" href="https://clay-wangzhi.github.io/2018/07/27/awk（4）/"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>awk（4）-Awk语言（上） | Clay's Blog</title><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}</style></noscript></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Clay's Blog</span> <span class="logo-line-after"><i></i></span></a></div></div><div class="site-nav-toggle"><button aria-label="切换导航栏"><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签<span class="badge">9</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档<span class="badge">82</span></a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><a href="https://github.com/clay-wangzhi" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222;color:#fff;position:absolute;top:0;border:0;right:0" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://clay-wangzhi.github.io/2018/07/27/awk（4）/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="clay-wangzhi"><meta itemprop="description" content="区块链、Linux、前端相关技术"><meta itemprop="image" content="/images/go_logo.png"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="Clay's Blog"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">awk（4）-Awk语言（上）</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2018-07-27 18:27:00 / 修改时间：19:05:20" itemprop="dateCreated datePublished" datetime="2018-07-27T18:27:00+08:00">2018-07-27</time> </span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span></span><div class="post-symbolscount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i> </span><span class="post-meta-item-text">本文字数：</span> <span title="本文字数">7.9k</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span title="阅读时长">7 分钟</span></div></div></header><div class="post-body" itemprop="articleBody"><p>最简单的 awk 程序是一个由多个 模式–动作 语句构成的序列:<br>pattern { action }<br>pattern { action }<br>…</p><a id="more"></a><p>在某些语句中, 模式可以不存在; 还有些语句, 动作及其包围它的花括号也可以不存在. 如果程序经过<br>awk 检查后没有发现语法错误, 它就会每次读取一个输入行, 对读取到的每一行, 按顺序检查每一个模<br>式. 对每一个与当前行匹配的模式, 对应的动作就会执行. 一个缺失的模式匹配每一个输入行, 因此每一<br>个不带有模式的动作对每一个输入行都会执行. 只含有模式而没有动作的语句, 会打印每一个匹配模式<br>的输入行. 大部分情况下, 在这一章出现的术语 “输入行” 与 “记录” 被当作一对同义词.</p><h2 id="输入文件-countries"><a href="#输入文件-countries" class="headerlink" title="输入文件 countries"></a>输入文件 countries</h2><p>作为本章许多 awk 程序的输入数据, 我们将使用文件 countries. 每一行都包括一<br>个国家的名字, 面积 (以千平方英里为单位), 人口 (以百万为单位), 以及这个国家所在的大<br>陆. 数据来源于 1984 年, 苏联被归到了亚洲. 在文件里, 四列数据用制表符分隔, 用一个空<br>格分隔 North (South) 与 America.<br>文件 countries 包含下面几行: 22<br>USSR 8649 275 Asia<br>Canada 3852 25 North America<br>China 3705 1032 Asia<br>USA 3615 237 North America<br>Brazil 3286 134 South America<br>India 1267 746 Asia</p><p>Mexico 762 78 North America<br>France 211 55 Europe<br>Japan 144 120 Asia<br>Germany 96 61 Europe<br>England 94 56 Europe<br>在这一章的剩下部分里, 如果没有显式给出输入数据, 默认将 countries 作为输入.</p><h2 id="程序格式"><a href="#程序格式" class="headerlink" title="程序格式"></a>程序格式</h2><p>模式–动作 语句, 以及动作内的语句通常用换行符分隔, 但是若干条语句也可以出现在同一行, 只要它们之间用分号分开即可. 一个分号可以放在任何语句的末尾.</p><p>动作的左花括号必须与它的模式在同一行; 而剩下的部分, 包括右花括号, 则可以出现<br>在下面几行.<br>空行会被忽略; 它们可以插入在语句之前或之后, 用于提高程序的可读性. 空格与制表<br>符可以出现在运算符与操作数的周围, 同样也是为了提高可读性.<br>注释可以出现在任意一行的末尾. 一个注释以井号 (#) 开始, 以换行符结束, 正如<br>{ print $1, $3 } # print country name and population<br>一条长语句可以分散成多行, 只要在断行处插入一个反斜杠即可:<br>{ print \<br>$1, # country name<br>$2, # area in thousands of square miles<br>$3 } # population in millions</p><p>正如这个例子所呈现的那样, 语句可以在逗号之后断行, 并且注释可以出现在断行的末尾.在这本书里我们用到了若干种编程风格, 之所以这样做, 一方面是为了比较不同风格之间的差异, 另一方面是为了避免程序占用过多的行. 对于比较短小的程序 — 就像本章中出现过的那些例子 — 格式并不是非常重要, 但是一致性与可读性对于大程序的管理非常有帮助.</p><h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>模式控制着动作的执行: 当模式匹配时, 相应的动作便会执行. 这一小节描述模式的 6<br>种类型, 以及匹配它们的条件.</p><p>模式汇总</p><ol><li><p>BEGIN{ statements}<br>在输入被读取之前, statements 执行一次.</p></li><li><p>END{ statements}<br>当所有输入被读取完毕之后, statements 执行一次.</p></li><li><p>expression{ statements}<br>每碰到一个使 expression 为真的输入行, statements 就执行. expression 为真指的是其值非零或非空.</p></li><li><p>/regular expression/ { statements}<br>当碰到这样一个输入行时, statements 就执行: 输入行含有一段字符串, 而该字符串可以被 regular expression 匹配.</p></li><li><p>compound pattern { statements}<br>一个复合模式将表达式用&amp;&amp;(AND),||(OR),!(NOT),以及括号组合起来; 当com-pound pattern 为真时, statements 执行.</p></li><li><p>pattern 1 , pattern 2 { statements}<br>一个范围模式匹配多个输入行, 这些输入行从匹配 pattern 1 的行开始, 到匹配 pat-tern 2 的行结束 (包括这两行), 对这其中的每一行执行 statements. BEGIN 与 END 不与其他模式组合. 一个范围模式不能是其他模式的一部分. BEGIN 与END 是唯一两个不能省略动作的模式.符. 将 FS 设置成一个非空格字符, 就会使该字符成为字段分割符.下面这个程序在 BEGIN 的动作里将字段字割符设置为制表符 (\t), 并在输出之前打印标题. 第二个 printf 语句 (对每一个输入行它都会执行) 将输出格式化成一张表格, 使得每一列都刚好与标题的列表头对齐. END 打印总和.<br>​</p></li></ol><h3 id="BEGIN-与-与-END"><a href="#BEGIN-与-与-END" class="headerlink" title="BEGIN 与 与 END"></a>BEGIN 与 与 END</h3><p>BEGIN 与 END 这两个模式不匹配任何输入行. 实际情况是, 当 awk 从输入读取数据之前, BEGIN 的语句开始执行; 当所有输入数据被读取完毕, END 的语句开始执行. 于是,BEGIN 与 END 分别提供了一种控制初始化与扫尾的方式. BEGIN 与 END 不能与其他模式作组合. 如果有多个 BEGIN, 与其关联的动作会按照它们在程序中出现的顺序执行, 这种行为对多个 END 同样适用. 我们通常将 BEGIN 放在程序开头, 将 END 放在程序末尾, 虽然这并不是强制的.<br>BEGIN 的一个常见用途是更改输入行被分割为字段的默认方式. 分割字符由一个内建变量 FS 控制. 默认情况下字段由空格或 (和) 制表符分割, 此时 FS 的值被设置为一个空格符. 将 FS 设置成一个非空格字符, 就会使该字符成为字段分割符.<br>下面这个程序在 BEGIN 的动作里将字段字割符设置为制表符 (\t), 并在输出之前打印标题. 第二个 printf 语句 (对每一个输入行它都会执行) 将输出格式化成一张表格, 使得每一列都刚好与标题的列表头对齐. END 打印总和.</p><h1 id="print-countries-with-column-headers-and-totals"><a href="#print-countries-with-column-headers-and-totals" class="headerlink" title="print countries with column headers and totals"></a>print countries with column headers and totals</h1><p>BEGIN { FS = “\t” # make tab the field separator<br>printf(“%10s %6s %5s %s\n\n”,<br>“COUNTRY”, “AREA”, “POP”, “CONTINENT”)<br>}<br>{ printf(“%10s %6d %5d %s\n”, $1, $2, $3, $4)<br>area = area + $2<br>pop = pop + $3<br>}<br>END { printf(“\n%10s %6d %5d\n”, “TOTAL”, area, pop) }<br>如果将 countries 作为输入, 将出将是<br>COUNTRY AREA POP CONTINENT<br>USSR 8649 275 Asia<br>Canada 3852 25 North America<br>China 3705 1032 Asia<br>USA 3615 237 North America<br>Brazil 3286 134 South America<br>India 1267 746 Asia<br>Mexico 762 78 North America<br>France 211 55 Europe<br>Japan 144 120 Asia<br>Germany 96 61 Europe<br>England 94 56 Europe<br>TOTAL 25681 2819</p><h3 id="将表达式用作模式"><a href="#将表达式用作模式" class="headerlink" title="将表达式用作模式"></a>将表达式用作模式</h3><p>就像大多数程序设计语言一样，awk拥有非常丰富的用来描述数值计算的表达式，但是与许多语言不同的是，awk还有用于描述字符串操作的表达式.贯穿全书, string 都表示一个由 0 个或多个字符组成的序列. 这些字符串可以存储在变量中, 也可以以字符串常量的形式出现, 就像 “” 或 “Asia”. 字符串 “” 不包括任何字符, 叫做 空字符串 (null string). 术语 串 子字符串 (substring) 表示一个字符串内部的, 由 0 个或多个字符组成的连续序列. 对任意一个字符串, 空字符串都可以看作是该字符串第一个字符之前的, 长度为 0 的子字符串,或者是一对相邻字符之间的子字符串, 又或者是最后一个字符之后的子字符串.任意一个表达式都可以用作任意一个运算符的操作数. 如果一个表达式拥有一个数值形式的值, 而运算符要求一个字符串值, 那么该数值会自动转换成字符串, 类似地, 当运算符 25要求一个数值时, 字符串被自动转换成数值.任意一个表达式都可以当作模式来使用. 如果一个作为模式使用的表达式, 对当前输入行的求值结果不空或非零, 那么该模式就匹配该行. 典型的表达式模式是那些涉及到数值或<br>字符串比较的表达式. 一个比较表达式包含 6 种关系运算符中的一种, 或者包含两种字符串<br>匹配运算符中的一种: ~ 与 !~ 在下一小节讨论. 关系运算符如下图：</p><p><img src="/images/awk1.png" alt=""></p><p>如果模式是一个比较表达式, 就像 NF &gt; 10, 当当前行使该条件满足时, 这个模式就算是匹配该输入行, 在这里条件满足指的是当前输入行的字段数大于 10. 如果模式是一个算术表达式, 就像 NF, 如果该表达式的值非零, 那么当前输入行被匹配. 如果模式是一个字符串表达式, 当表达式的字符串值非空时, 当前输入行被匹配.</p><p>在一个关系比较中, 如果两个操作数都是数值, 关系比较将会按照数值比较进行; 否则的话, 数值操作数会被转换成字符串, 再将操作数按字符串的形式进行比较. 两个字符串间的比较以字符为单位逐个相比, 字符间的先后顺序依赖于机器的字符集 (大多数情况下是 ASCII 字符集). 一个字符串 “小于” 另一个, 指的是它比另一个字符串更早出现, 例如:</p><p>“Canada” &lt; “China”, “Asia” &lt; “Asian”.<br>模式<br>\$3/$2 &gt;= 0.5<br>选择的行, 其第 3 个字段除以第 2 个字段所得的商大于 0.5, 而<br>$0 &gt;= “M”<br>26<br>选择那些以字母 M, N, O 等开头的输入行:<br>USSR 8649 275 Asia<br>USA 3615 237 North America<br>Mexico 762 78 North America<br>有时候一个比较运算符的类型不能单单靠表达式表现出来的语法形式来判断. 程序<br>\$1 &lt; $4<br>可以以数值的形式, 或者字符串的形式比较输入行的第 1 个与第 4 个字段. 在这里, 比较的类型取决于字段的值, 并且有可能每一行都有不同的情况出现. 文件 countries 的第 1 个与第 4 个字段总是字符串, 所以比较总是以字符串的形式进行; 输出是<br>Canada 3852 25 North America<br>Brazil 3286 134 South America<br>Mexico 762 78 North America<br>England 94 56 Europe</p><p>只有当两个字段都是数值时, 比较才会以数值的形式进行; 这种情况可以是<br>\$2 &lt; $3</p><h3 id="字符串匹配模式"><a href="#字符串匹配模式" class="headerlink" title="字符串匹配模式"></a>字符串匹配模式</h3><p>Awk 提供了一种称为 正则表达式 (regular expression) 的表示法, 它可以用来指定和匹配一个字符串. 正则表达式在 Unix 环境用得非常普遍, 包括文本编辑器与 shell. 受限形式的正则表达式也出现在其他系统中, 在 MS-DOS 中可以用 “通配符” 指定一个文件名集合.</p><p>一个 式 字符串匹配模式 (string-matching pattern) 测试一个字符串是否包含一段可以被正则表达式匹配的子字符串.<br>最简单的正则表达式是仅由数字与字母组成的字符串, 就像 Asia, 它匹配的就是它本身. 为了将一个正则表达式切换成一个模式, 只需要用一对斜杠包围起来即可:</p><p>/Asia/<br>这个模式匹配那些含有子字符串 Asia 的输入行, 例如 Asia, Asian, 或 Pan-Asiatic.<br>注意, 正则表达式中空格是有意义的: 字符串匹配模式</p><p>字符串匹配模式</p><ol><li>/regexpr/<br>当当前输入行包含一段能够被 regexpr 匹配的子字符串时, 该模式被匹配.</li><li>expression ~ /regexpr/<br>如果 expression 的字符串值包含一段能够被 regexpr 匹配的子字符时, 该模式被<br>匹配.</li><li>expression !~ /regexpr/<br>如果 expression 的字符串值不包含能够被 regexpr 匹配的子字符串, 该模式被匹<br>配.<br>在 ~ 与 !~ 的语境中, 任意一个表达式都可以用来替换 /regexpr/.<br>/ Asia /<br>只有当 Asia 被一对空格包围时才会匹配成功.<br>上面的模式是三种字符串匹配模式当中的一种. 它的形式是用一对斜杠将正则表达式<br>包围起来:<br>/r/<br>如果某个输入行含有能被 r 匹配的子字符串, 则该行匹配成功.<br>剩下的两种字符串匹配模式使用到了显式的匹配运算符:<br>expression ~ /r/<br>expression !~ /r/</li></ol><p>匹配运算符 ~ 的意思是 “被… 匹配”, !~ 的意思是 “不被… 匹配”. 当 expression 的字符串值<br>包含一段能够被正则表达式 r 匹配的子字串时, 第一个模式被匹配; 当不存在这样的子字符<br>串时, 第二个模式被匹配.<br>匹配运算符的左操作数经常是一个字段, 模式<br>$4 ~ /Asia/<br>匹配所有第 4 个字段包含 Asia 的输入行, 而<br>$4 !~ /Asia/</p><p>匹配所有第 4 个字段 不包含 Asia 的输入行.<br>注意到, 字符串匹配模式<br>/Asia/<br>是<br>$0 ~ /Asia/<br>的简写形式.</p><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p>正则表达式是一种用于指定和匹配字符串的表示法. 就像算术表达式一样, 一个正则表达式是一个基本表达式, 或者是多个子表达式通过运算符组合而成. 为了理解被一个正则表达式匹配的字符串, 我们需要先了解被子表达式匹配的字符串.</p><p>正则表达式</p><ol><li>正则表达式的元字符包括:<br>\ ^ $ . [ ] | ( ) * + ?</li><li>一个基本的正则表达式包括下面几种:<br>一个不是元字符的字符, 例如 A, 这个正则表达式匹配的就是它本身.<br>一个匹配特殊符号的转义字符: \t 匹配一个制表符 (见表 2.2).<br>一个被引用的元字符, 例如 *, 按字面意义匹配元字符.<br>^ 匹配一行的开始.<br>$ 匹配一行的结束.<br>. 匹配任意一个字符.<br>一个字符类: [ABC] 匹配字符 A, B 或 C.<br>字符类可能包含缩写形式: [A-Za-z] 匹配单个字母.<br>一个互补的字符类: [^0-9] 匹配任意一个不是数字的字符.</li><li>这些运算符将正则表达式组合起来:<br>选择: A|B 匹配 A 或 B.<br>拼接: AB 匹配后面紧跟着 B 的 A.<br>闭包: A* 匹配 0 个或多个 A.<br>正闭包: A+ 匹配一个或多个 A.<br>零或一: A? 匹配空字符串或 A.<br>括号: 被 (r) 匹配的字符串, 与 r 所匹配的字符串相同.</li></ol><p>基本的正则表达式在上面的表格中列出. 字符<br>\ ^ $ . [ ] | ( ) * + ?<br>叫作 符 元字符 (metacharacter), 之所以这样称呼是因为它们具有特殊的意义. 一个由单个非<br>元字符构成的正则表达式匹配它自身. 于是, 一个字母或一个数字都算作是一个基本的正则<br>表达式, 与自身相匹配. 为了在正则表达式中保留元字符的字面意义, 需要在字符的前面加<br>上反斜杠. 于是, \$ 匹配普通字符 $. 如果某个字符前面冠有 \, 我们就说该字符是被 引用<br>(quoted) 的.<br>在一个正则表达式中, 一个未被引用的脱字符 ^ 表示一行的开始, 一个未被引用的美元<br>符 $ 匹配一行的结束, 一个未被引用的句点 . 匹配任意一个字符. 于是,<br>^C 匹配以字符 C 开始的字符串;<br>C$ 匹配以字符 C 结束的字符串;<br>^C$ 匹配只含有单个字符 C 的字符串;<br>^.$ 匹配有且仅有一个字符的字符串;<br>^…$ 匹配有且仅有 3 个字符的字符串;<br>… 匹配任意 3 个字符;<br>.$ 匹配以句点结束的字符串.</p><p>由一组被包围在方括号中的字符组成的正则表达式称为 类 字符类 (character class); 这个表达式匹配字符类中的任意一个字符. 例如, [AEIOU] 匹配 A, E, I, O 或 U.使用连字符的字符类可以表示一段字符范围. 紧跟在连字符左边的字符定义了范围的开始, 紧跟在连字符右边的字符定义了范围的结束. 于是, [0-9] 匹配任意一个数字,[a-zA-Z][0-9] 匹配一个后面紧跟着一个数字的字母. 如果左右两边都没有操作数, 那么字符类中的连字符就表示它本身, 所以 [+-] 与 [-+] 匹配一个 + 或 -. [A-Za-z-]+ 匹配一个可能包含连字符的单词.<br>一个 补 互补 (complemented) 的字符类在 [ 之后以 ^ 开始. 这样一个类匹配任意一个不在类中的字符, “类中的字符” 指的是方括号内排在脱字符之后的那些字符. 于是, [^0-9]匹配任意一个不是数字的字符; [^a-zA-Z] 匹配任意一个不是字母的字符.<br>^[ABC] 匹配以 A, B, 或 C 开始的字符串;<br>^[^ABC] 匹配以任意一个字符 (除了 A, B, 或 C) 开始的字符串;<br>[^ABC] 匹配任意一个字符, 除了 A, B, 或 C;<br>^[^a-z]$ 匹配任意一个有且仅有一个字符的字符串, 且该字符不能是小写字母.</p><p>在一个字符类中, 所有的字符都具有它自身的字面意义, 除了引用字符 \, 互补字符类开头的 ^, 以及两个字符间的 -. 于是, [.] 匹配一个句点, ^[^^] 匹配不以脱字符开始的字符串.<br>可以使用括号来指定正则表达式中的各个成分如何组合. 有两种二元正则表达式运算符: 选择与拼接. 选择运算符 | 用来指定一个选择: 如果 r 1 与 r 2 是正则表达式, 那么 r 1 |r 2所匹配的字符串, 或者与 r 1 , 或者与 r 2 匹配.<br>Awk 不存在显式的拼接运算符. 如果 r 1 与 r 2 是正则表达式, 那么 (r 1 )(r 1 ) (在 (r 1 )与 (r 2 ) 之间没有空格) 所匹配的字符串具有形式 xy, 其中 x 被 r 1 匹配, y 被 r 2 匹配. 如果被括号包围的正则表达式不包含选择运算符, 那么 r 1 或 r 2 两边的括号就可以省略. 正则表达式<br>(Asian|European|North American) (male|female) (black|blue)bird<br>一共匹配 12 种字符串, 从<br>Asian male blackbird<br>到</p><p>注：The AWK Programming Language学习笔记</p></div><div><div><div style="text-align:center;color:#ccc;font-size:14px">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div></div></div><div><div class="my_post_copyright"><script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script><script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script><script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><p><span>本文标题:</span><a href="/2018/07/27/awk（4）/">awk（4）-Awk语言（上）</a></p><p><span>文章作者:</span><a href="/" title="访问 clay-wangzhi 的个人博客">clay-wangzhi</a></p><p><span>发布时间:</span>2018年07月27日 - 18:07</p><p><span>最后更新:</span>2018年07月27日 - 19:07</p><p><span>原始链接:</span><a href="/2018/07/27/awk（4）/" title="awk（4）-Awk语言（上）">https://clay-wangzhi.github.io/2018/07/27/awk（4）/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://clay-wangzhi.github.io/2018/07/27/awk（4）/" aria-label="复制成功！"></i></span></p><p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p></div><script>var clipboard=new Clipboard(".fa-clipboard");$(".fa-clipboard").click(function(){clipboard.on("success",function(){swal({title:"",text:"复制成功",icon:"success",showConfirmButton:!0})})})</script></div><footer class="post-footer"><div class="post-tags"><a href="/tags/awk/" rel="tag"><i class="fa fa-tag"></i> awk</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2018/07/27/awk（3）/" rel="next" title="awk（3）-快速入门（下）"><i class="fa fa-chevron-left"></i> awk（3）-快速入门（下）</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="/2018/07/27/每天一个linux命令（1）-ls/" rel="prev" title="每天一个linux命令（1）-ls">每天一个linux命令（1）-ls <i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap">站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="/images/go_logo.png" alt="clay-wangzhi"><p class="site-author-name" itemprop="name">clay-wangzhi</p><p class="site-description motion-element" itemprop="description">区块链、Linux、前端相关技术</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">82</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/index.html"><span class="site-state-item-count">3</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/index.html"><span class="site-state-item-count">9</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="mailto:clay.wangzhi@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a></span></div><div class="links-of-blogroll motion-element links-of-blogroll-block"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-linux"></i> Linux加油站</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"><a href="http://man.linuxde.net/" title="Linux命令大全" target="_blank">Linux命令大全</a></li></ul></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#输入文件-countries"><span class="nav-number">1.</span> <span class="nav-text">输入文件 countries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序格式"><span class="nav-number">2.</span> <span class="nav-text">程序格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式"><span class="nav-number">3.</span> <span class="nav-text">模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BEGIN-与-与-END"><span class="nav-number">3.1.</span> <span class="nav-text">BEGIN 与 与 END</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#print-countries-with-column-headers-and-totals"><span class="nav-number"></span> <span class="nav-text">print countries with column headers and totals</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将表达式用作模式"><span class="nav-number">0.1.</span> <span class="nav-text">将表达式用作模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串匹配模式"><span class="nav-number">0.2.</span> <span class="nav-text">字符串匹配模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式"><span class="nav-number">0.3.</span> <span class="nav-text">正则表达式</span></a></li></ol></li></div></div></section><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span> <span class="with-love" id="animate"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">clay-wangzhi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-area-chart"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">319k</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">4:50</span></div></div></footer></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script><script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script><script type="text/javascript">function proceedsearch(){$("body").append('<div class="search-popup-overlay local-search-pop-overlay"></div>').css("overflow","hidden"),$(".search-popup-overlay").click(onPopupClose),$(".popup").toggle();var t=$("#local-search-input");t.attr("autocapitalize","none"),t.attr("autocorrect","off"),t.focus()}var isfetched=!1,isXml=!0,search_path="search.xml";0===search_path.length?search_path="search.xml":/json$/i.test(search_path)&&(isXml=!1);var path="/"+search_path,onPopupClose=function(t){$(".popup").hide(),$("#local-search-input").val(""),$(".search-result-list").remove(),$("#no-result").remove(),$(".local-search-pop-overlay").remove(),$("body").css("overflow","")},searchFunc=function(t,e,o){"use strict";$("body").append('<div class="search-popup-overlay local-search-pop-overlay"><div id="search-loading-icon"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div>').css("overflow","hidden"),$("#search-loading-icon").css("margin","20% auto 0 auto").css("text-align","center"),$.ajax({url:t,dataType:isXml?"xml":"json",async:!0,success:function(t){isfetched=!0,$(".popup").detach().appendTo(".header-inner");var n=isXml?$("entry",t).map(function(){return{title:$("title",this).text(),content:$("content",this).text(),url:$("url",this).text()}}).get():t,r=document.getElementById(e),s=document.getElementById(o),a=function(){var t=r.value.trim().toLowerCase(),e=t.split(/[\s\-]+/);e.length>1&&e.push(t);var o=[];if(t.length>0&&n.forEach(function(n){function r(e,o,n,r){for(var s=r[r.length-1],a=s.position,i=s.word,l=[],h=0;a+i.length<=n&&0!=r.length;){i===t&&h++,l.push({position:a,length:i.length});var p=a+i.length;for(r.pop();0!=r.length&&(s=r[r.length-1],a=s.position,i=s.word,p>a);)r.pop()}return c+=h,{hits:l,start:o,end:n,searchTextCount:h}}function s(t,e){var o="",n=e.start;return e.hits.forEach(function(e){o+=t.substring(n,e.position);var r=e.position+e.length;o+='<b class="search-keyword">'+t.substring(e.position,r)+"</b>",n=r}),o+=t.substring(n,e.end)}var a=!1,i=0,c=0,l=n.title.trim(),h=l.toLowerCase(),p=n.content.trim().replace(/<[^>]+>/g,""),u=p.toLowerCase(),f=decodeURIComponent(n.url),d=[],g=[];if(""!=l&&(e.forEach(function(t){function e(t,e,o){var n=t.length;if(0===n)return[];var r=0,s=[],a=[];for(o||(e=e.toLowerCase(),t=t.toLowerCase());(s=e.indexOf(t,r))>-1;)a.push({position:s,word:t}),r=s+n;return a}d=d.concat(e(t,h,!1)),g=g.concat(e(t,u,!1))}),(d.length>0||g.length>0)&&(a=!0,i=d.length+g.length)),a){[d,g].forEach(function(t){t.sort(function(t,e){return e.position!==t.position?e.position-t.position:t.word.length-e.word.length})});var v=[];0!=d.length&&v.push(r(l,0,l.length,d));for(var $=[];0!=g.length;){var C=g[g.length-1],m=C.position,x=C.word,w=m-20,y=m+80;0>w&&(w=0),y<m+x.length&&(y=m+x.length),y>p.length&&(y=p.length),$.push(r(p,w,y,g))}$.sort(function(t,e){return t.searchTextCount!==e.searchTextCount?e.searchTextCount-t.searchTextCount:t.hits.length!==e.hits.length?e.hits.length-t.hits.length:t.start-e.start});var T=parseInt("1");T>=0&&($=$.slice(0,T));var b="";b+=0!=v.length?"<li><a href='"+f+"' class='search-result-title'>"+s(l,v[0])+"</a>":"<li><a href='"+f+"' class='search-result-title'>"+l+"</a>",$.forEach(function(t){b+="<a href='"+f+'\'><p class="search-result">'+s(p,t)+"...</p></a>"}),b+="</li>",o.push({item:b,searchTextCount:c,hitCount:i,id:o.length})}}),1===e.length&&""===e[0])s.innerHTML='<div id="no-result"><i class="fa fa-search fa-5x" /></div>';else if(0===o.length)s.innerHTML='<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>';else{o.sort(function(t,e){return t.searchTextCount!==e.searchTextCount?e.searchTextCount-t.searchTextCount:t.hitCount!==e.hitCount?e.hitCount-t.hitCount:e.id-t.id});var a='<ul class="search-result-list">';o.forEach(function(t){a+=t.item}),a+="</ul>",s.innerHTML=a}};r.addEventListener("input",a),$(".local-search-pop-overlay").remove(),$("body").css("overflow",""),proceedsearch()}})};$(".popup-trigger").click(function(t){t.stopPropagation(),isfetched===!1?searchFunc(path,"local-search-input","local-search-result"):proceedsearch()}),$(".popup-btn-close").click(onPopupClose),$(".popup").click(function(t){t.stopPropagation()}),$(document).on("keyup",function(t){var e=27===t.which&&$(".search-popup").is(":visible");e&&onPopupClose()})</script><script>!function(){var t=document.createElement("script"),s=window.location.protocol.split(":")[0];"https"===s?t.src="https://zz.bdstatic.com/linksubmit/push.js":t.src="http://push.zhanzhang.baidu.com/push.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()</script><style>.copy-btn{display:inline-block;padding:6px 12px;font-size:13px;font-weight:700;line-height:20px;color:#333;white-space:nowrap;vertical-align:middle;cursor:pointer;background-color:#eee;background-image:linear-gradient(#fcfcfc,#eee);border:1px solid #d5d5d5;border-radius:3px;user-select:none;outline:0}.highlight-wrap .copy-btn{transition:opacity .3s ease-in-out;opacity:0;padding:2px 6px;position:absolute;right:4px;top:8px}.highlight-wrap .copy-btn:focus,.highlight-wrap:hover .copy-btn{opacity:1}.highlight-wrap{position:relative}</style><script>$(".highlight").each(function(t,e){var n=$("<div>").addClass("highlight-wrap");$(e).after(n),n.append($("<button>").addClass("copy-btn").append("复制").on("click",function(t){var e=$(this).parent().find(".code").find(".line").map(function(t,e){return $(e).text()}).toArray().join("\n"),n=document.createElement("textarea");document.body.appendChild(n),n.style.position="absolute",n.style.top="0px",n.style.left="0px",n.value=e,n.select(),n.focus();var o=document.execCommand("copy");document.body.removeChild(n),o?$(this).text("复制成功"):$(this).text("复制失败"),$(this).blur()})).on("mouseleave",function(t){var e=$(this).find(".copy-btn");setTimeout(function(){e.text("复制")},300)}).append(e)})</script></body></html><!-- rebuild by neat -->
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","Pisces | Gemini":240,"display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="最简单的 awk 程序是一个由多个 模式–动作 语句构成的序列:pattern { action }pattern { action }…">
+<meta name="keywords" content="awk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="awk（4）-Awk语言（上）">
+<meta property="og:url" content="https://clay-wangzhi.github.io/2018/07/27/awk（4）/index.html">
+<meta property="og:site_name" content="Clay&#39;s Blog">
+<meta property="og:description" content="最简单的 awk 程序是一个由多个 模式–动作 语句构成的序列:pattern { action }pattern { action }…">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://clay-wangzhi.github.io/images/awk1.png">
+<meta property="og:updated_time" content="2018-07-27T11:05:20.006Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="awk（4）-Awk语言（上）">
+<meta name="twitter:description" content="最简单的 awk 程序是一个由多个 模式–动作 语句构成的序列:pattern { action }pattern { action }…">
+<meta name="twitter:image" content="https://clay-wangzhi.github.io/images/awk1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://clay-wangzhi.github.io/2018/07/27/awk（4）/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>awk（4）-Awk语言（上） | Clay's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Clay's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">9</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">3</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">82</span></a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/clay-wangzhi" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://clay-wangzhi.github.io/2018/07/27/awk（4）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="clay-wangzhi">
+      <meta itemprop="description" content="区块链、Linux、前端相关技术">
+      <meta itemprop="image" content="/images/go_logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clay's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">awk（4）-Awk语言（上）
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-27 18:27:00 / 修改时间：19:05:20" itemprop="dateCreated datePublished" datetime="2018-07-27T18:27:00+08:00">2018-07-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">8k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">7 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最简单的 awk 程序是一个由多个 模式–动作 语句构成的序列:<br>pattern { action }<br>pattern { action }<br>…</p>
+<a id="more"></a>
+<p>在某些语句中, 模式可以不存在; 还有些语句, 动作及其包围它的花括号也可以不存在. 如果程序经过<br>awk 检查后没有发现语法错误, 它就会每次读取一个输入行, 对读取到的每一行, 按顺序检查每一个模<br>式. 对每一个与当前行匹配的模式, 对应的动作就会执行. 一个缺失的模式匹配每一个输入行, 因此每一<br>个不带有模式的动作对每一个输入行都会执行. 只含有模式而没有动作的语句, 会打印每一个匹配模式<br>的输入行. 大部分情况下, 在这一章出现的术语 “输入行” 与 “记录” 被当作一对同义词. </p>
+<h2 id="输入文件-countries"><a href="#输入文件-countries" class="headerlink" title="输入文件 countries"></a>输入文件 countries</h2><p>作为本章许多 awk 程序的输入数据, 我们将使用文件 countries. 每一行都包括一<br>个国家的名字, 面积 (以千平方英里为单位), 人口 (以百万为单位), 以及这个国家所在的大<br>陆. 数据来源于 1984 年, 苏联被归到了亚洲. 在文件里, 四列数据用制表符分隔, 用一个空<br>格分隔 North (South) 与 America.<br>文件 countries 包含下面几行: 22<br>USSR 8649 275 Asia<br>Canada 3852 25 North America<br>China 3705 1032 Asia<br>USA 3615 237 North America<br>Brazil 3286 134 South America<br>India 1267 746 Asia</p>
+<p>Mexico 762 78 North America<br>France 211 55 Europe<br>Japan 144 120 Asia<br>Germany 96 61 Europe<br>England 94 56 Europe<br>在这一章的剩下部分里, 如果没有显式给出输入数据, 默认将 countries 作为输入.</p>
+<h2 id="程序格式"><a href="#程序格式" class="headerlink" title="程序格式"></a>程序格式</h2><p>模式–动作 语句, 以及动作内的语句通常用换行符分隔, 但是若干条语句也可以出现在同一行, 只要它们之间用分号分开即可. 一个分号可以放在任何语句的末尾.</p>
+<p>动作的左花括号必须与它的模式在同一行; 而剩下的部分, 包括右花括号, 则可以出现<br>在下面几行.<br>空行会被忽略; 它们可以插入在语句之前或之后, 用于提高程序的可读性. 空格与制表<br>符可以出现在运算符与操作数的周围, 同样也是为了提高可读性.<br>注释可以出现在任意一行的末尾. 一个注释以井号 (#) 开始, 以换行符结束, 正如<br>{ print $1, $3 } # print country name and population<br>一条长语句可以分散成多行, 只要在断行处插入一个反斜杠即可:<br>{ print \<br>$1, # country name<br>$2, # area in thousands of square miles<br>$3 } # population in millions</p>
+<p>正如这个例子所呈现的那样, 语句可以在逗号之后断行, 并且注释可以出现在断行的末尾.在这本书里我们用到了若干种编程风格, 之所以这样做, 一方面是为了比较不同风格之间的差异, 另一方面是为了避免程序占用过多的行. 对于比较短小的程序 — 就像本章中出现过的那些例子 — 格式并不是非常重要, 但是一致性与可读性对于大程序的管理非常有帮助.</p>
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>模式控制着动作的执行: 当模式匹配时, 相应的动作便会执行. 这一小节描述模式的 6<br>种类型, 以及匹配它们的条件.</p>
+<p>模式汇总</p>
+<ol>
+<li><p>BEGIN{ statements}<br>在输入被读取之前, statements 执行一次.</p>
+</li>
+<li><p>END{ statements}<br>当所有输入被读取完毕之后, statements 执行一次.</p>
+</li>
+<li><p>expression{ statements}<br>每碰到一个使 expression 为真的输入行, statements 就执行. expression 为真指的是其值非零或非空.</p>
+</li>
+<li><p>/regular expression/ { statements}<br>当碰到这样一个输入行时, statements 就执行: 输入行含有一段字符串, 而该字符串可以被 regular expression 匹配.</p>
+</li>
+<li><p>compound pattern { statements}<br>一个复合模式将表达式用&amp;&amp;(AND),||(OR),!(NOT),以及括号组合起来; 当com-pound pattern 为真时, statements 执行.</p>
+</li>
+<li><p>pattern 1 , pattern 2 { statements}<br>一个范围模式匹配多个输入行, 这些输入行从匹配 pattern 1 的行开始, 到匹配 pat-tern 2 的行结束 (包括这两行), 对这其中的每一行执行 statements. BEGIN 与 END 不与其他模式组合. 一个范围模式不能是其他模式的一部分. BEGIN 与END 是唯一两个不能省略动作的模式.符. 将 FS 设置成一个非空格字符, 就会使该字符成为字段分割符.下面这个程序在 BEGIN 的动作里将字段字割符设置为制表符 (\t), 并在输出之前打印标题. 第二个 printf 语句 (对每一个输入行它都会执行) 将输出格式化成一张表格, 使得每一列都刚好与标题的列表头对齐. END 打印总和.<br>​</p>
+</li>
+</ol>
+<h3 id="BEGIN-与-与-END"><a href="#BEGIN-与-与-END" class="headerlink" title="BEGIN 与 与 END"></a>BEGIN 与 与 END</h3><p>BEGIN 与 END 这两个模式不匹配任何输入行. 实际情况是, 当 awk 从输入读取数据之前, BEGIN 的语句开始执行; 当所有输入数据被读取完毕, END 的语句开始执行. 于是,BEGIN 与 END 分别提供了一种控制初始化与扫尾的方式. BEGIN 与 END 不能与其他模式作组合. 如果有多个 BEGIN, 与其关联的动作会按照它们在程序中出现的顺序执行, 这种行为对多个 END 同样适用. 我们通常将 BEGIN 放在程序开头, 将 END 放在程序末尾, 虽然这并不是强制的.<br>BEGIN 的一个常见用途是更改输入行被分割为字段的默认方式. 分割字符由一个内建变量 FS 控制. 默认情况下字段由空格或 (和) 制表符分割, 此时 FS 的值被设置为一个空格符. 将 FS 设置成一个非空格字符, 就会使该字符成为字段分割符.<br>下面这个程序在 BEGIN 的动作里将字段字割符设置为制表符 (\t), 并在输出之前打印标题. 第二个 printf 语句 (对每一个输入行它都会执行) 将输出格式化成一张表格, 使得每一列都刚好与标题的列表头对齐. END 打印总和.</p>
+<h1 id="print-countries-with-column-headers-and-totals"><a href="#print-countries-with-column-headers-and-totals" class="headerlink" title="print countries with column headers and totals"></a>print countries with column headers and totals</h1><p>BEGIN { FS = “\t” # make tab the field separator<br>printf(“%10s %6s %5s %s\n\n”,<br>“COUNTRY”, “AREA”, “POP”, “CONTINENT”)<br>}<br>{ printf(“%10s %6d %5d %s\n”, $1, $2, $3, $4)<br>area = area + $2<br>pop = pop + $3<br>}<br>END { printf(“\n%10s %6d %5d\n”, “TOTAL”, area, pop) }<br>如果将 countries 作为输入, 将出将是<br>COUNTRY AREA POP CONTINENT<br>USSR 8649 275 Asia<br>Canada 3852 25 North America<br>China 3705 1032 Asia<br>USA 3615 237 North America<br>Brazil 3286 134 South America<br>India 1267 746 Asia<br>Mexico 762 78 North America<br>France 211 55 Europe<br>Japan 144 120 Asia<br>Germany 96 61 Europe<br>England 94 56 Europe<br>TOTAL 25681 2819</p>
+<h3 id="将表达式用作模式"><a href="#将表达式用作模式" class="headerlink" title="将表达式用作模式"></a>将表达式用作模式</h3><p>就像大多数程序设计语言一样，awk拥有非常丰富的用来描述数值计算的表达式，但是与许多语言不同的是，awk还有用于描述字符串操作的表达式.贯穿全书, string 都表示一个由 0 个或多个字符组成的序列. 这些字符串可以存储在变量中, 也可以以字符串常量的形式出现, 就像 “” 或 “Asia”. 字符串 “” 不包括任何字符, 叫做  空字符串 (null string). 术语 串 子字符串 (substring) 表示一个字符串内部的, 由 0 个或多个字符组成的连续序列. 对任意一个字符串, 空字符串都可以看作是该字符串第一个字符之前的, 长度为 0 的子字符串,或者是一对相邻字符之间的子字符串, 又或者是最后一个字符之后的子字符串.任意一个表达式都可以用作任意一个运算符的操作数. 如果一个表达式拥有一个数值形式的值, 而运算符要求一个字符串值, 那么该数值会自动转换成字符串, 类似地, 当运算符 25要求一个数值时, 字符串被自动转换成数值.任意一个表达式都可以当作模式来使用. 如果一个作为模式使用的表达式, 对当前输入行的求值结果不空或非零, 那么该模式就匹配该行. 典型的表达式模式是那些涉及到数值或<br>字符串比较的表达式. 一个比较表达式包含 6 种关系运算符中的一种, 或者包含两种字符串<br>匹配运算符中的一种: ~ 与 !~ 在下一小节讨论. 关系运算符如下图：</p>
+<p><img src="/images/awk1.png" alt=""></p>
+<p>如果模式是一个比较表达式, 就像 NF &gt; 10, 当当前行使该条件满足时, 这个模式就算是匹配该输入行, 在这里条件满足指的是当前输入行的字段数大于 10. 如果模式是一个算术表达式, 就像 NF, 如果该表达式的值非零, 那么当前输入行被匹配. 如果模式是一个字符串表达式, 当表达式的字符串值非空时, 当前输入行被匹配.</p>
+<p>在一个关系比较中, 如果两个操作数都是数值, 关系比较将会按照数值比较进行; 否则的话, 数值操作数会被转换成字符串, 再将操作数按字符串的形式进行比较. 两个字符串间的比较以字符为单位逐个相比, 字符间的先后顺序依赖于机器的字符集 (大多数情况下是 ASCII 字符集). 一个字符串 “小于” 另一个, 指的是它比另一个字符串更早出现, 例如:</p>
+<p>“Canada” &lt; “China”, “Asia” &lt; “Asian”.<br>模式<br>\$3/$2 &gt;= 0.5<br>选择的行, 其第 3 个字段除以第 2 个字段所得的商大于 0.5, 而<br>$0 &gt;= “M”<br>26<br>选择那些以字母 M, N, O 等开头的输入行:<br>USSR 8649 275 Asia<br>USA 3615 237 North America<br>Mexico 762 78 North America<br>有时候一个比较运算符的类型不能单单靠表达式表现出来的语法形式来判断. 程序<br>\$1 &lt; $4<br>可以以数值的形式, 或者字符串的形式比较输入行的第 1 个与第 4 个字段. 在这里, 比较的类型取决于字段的值, 并且有可能每一行都有不同的情况出现. 文件 countries 的第 1 个与第 4 个字段总是字符串, 所以比较总是以字符串的形式进行; 输出是<br>Canada 3852 25 North America<br>Brazil 3286 134 South America<br>Mexico 762 78 North America<br>England 94 56 Europe</p>
+<p>只有当两个字段都是数值时, 比较才会以数值的形式进行; 这种情况可以是<br>\$2 &lt; $3</p>
+<h3 id="字符串匹配模式"><a href="#字符串匹配模式" class="headerlink" title="字符串匹配模式"></a>字符串匹配模式</h3><p>Awk 提供了一种称为  正则表达式 (regular expression) 的表示法, 它可以用来指定和匹配一个字符串. 正则表达式在 Unix 环境用得非常普遍, 包括文本编辑器与 shell. 受限形式的正则表达式也出现在其他系统中, 在 MS-DOS 中可以用 “通配符” 指定一个文件名集合.</p>
+<p>一个 式 字符串匹配模式 (string-matching pattern) 测试一个字符串是否包含一段可以被正则表达式匹配的子字符串.<br>最简单的正则表达式是仅由数字与字母组成的字符串, 就像 Asia, 它匹配的就是它本身. 为了将一个正则表达式切换成一个模式, 只需要用一对斜杠包围起来即可:</p>
+<p>/Asia/<br>这个模式匹配那些含有子字符串 Asia 的输入行, 例如 Asia, Asian, 或 Pan-Asiatic.<br>注意, 正则表达式中空格是有意义的: 字符串匹配模式</p>
+<p>字符串匹配模式</p>
+<ol>
+<li>/regexpr/<br>当当前输入行包含一段能够被 regexpr 匹配的子字符串时, 该模式被匹配.</li>
+<li>expression ~ /regexpr/<br>如果 expression 的字符串值包含一段能够被 regexpr 匹配的子字符时, 该模式被<br>匹配.</li>
+<li>expression !~ /regexpr/<br>如果 expression 的字符串值不包含能够被 regexpr 匹配的子字符串, 该模式被匹<br>配.<br>在 ~ 与 !~ 的语境中, 任意一个表达式都可以用来替换 /regexpr/.<br>/ Asia /<br>只有当 Asia 被一对空格包围时才会匹配成功.<br>上面的模式是三种字符串匹配模式当中的一种. 它的形式是用一对斜杠将正则表达式<br>包围起来:<br>/r/<br>如果某个输入行含有能被 r 匹配的子字符串, 则该行匹配成功.<br>剩下的两种字符串匹配模式使用到了显式的匹配运算符:<br>expression ~ /r/<br>expression !~ /r/</li>
+</ol>
+<p>匹配运算符 ~ 的意思是 “被… 匹配”, !~ 的意思是 “不被… 匹配”. 当 expression 的字符串值<br>包含一段能够被正则表达式 r 匹配的子字串时, 第一个模式被匹配; 当不存在这样的子字符<br>串时, 第二个模式被匹配.<br>匹配运算符的左操作数经常是一个字段, 模式<br>$4 ~ /Asia/<br>匹配所有第 4 个字段包含 Asia 的输入行, 而<br>$4 !~ /Asia/</p>
+<p>匹配所有第 4 个字段 不包含 Asia 的输入行.<br>注意到, 字符串匹配模式<br>/Asia/<br>是<br>$0 ~ /Asia/<br>的简写形式.</p>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p>正则表达式是一种用于指定和匹配字符串的表示法. 就像算术表达式一样, 一个正则表达式是一个基本表达式, 或者是多个子表达式通过运算符组合而成. 为了理解被一个正则表达式匹配的字符串, 我们需要先了解被子表达式匹配的字符串.</p>
+<p>正则表达式</p>
+<ol>
+<li>正则表达式的元字符包括:<br>\ ^ $ . [ ] | ( ) * + ?</li>
+<li>一个基本的正则表达式包括下面几种:<br>一个不是元字符的字符, 例如 A, 这个正则表达式匹配的就是它本身.<br>一个匹配特殊符号的转义字符: \t 匹配一个制表符 (见表 2.2).<br>一个被引用的元字符, 例如 *, 按字面意义匹配元字符.<br>^ 匹配一行的开始.<br>$ 匹配一行的结束.<br>. 匹配任意一个字符.<br>一个字符类: [ABC] 匹配字符 A, B 或 C.<br>字符类可能包含缩写形式: [A-Za-z] 匹配单个字母.<br>一个互补的字符类: [^0-9] 匹配任意一个不是数字的字符.</li>
+<li>这些运算符将正则表达式组合起来:<br>选择: A|B 匹配 A 或 B.<br>拼接: AB 匹配后面紧跟着 B 的 A.<br>闭包: A* 匹配 0 个或多个 A.<br>正闭包: A+ 匹配一个或多个 A.<br>零或一: A? 匹配空字符串或 A.<br>括号: 被 (r) 匹配的字符串, 与 r 所匹配的字符串相同.</li>
+</ol>
+<p>基本的正则表达式在上面的表格中列出. 字符<br>\ ^ $ . [ ] | ( ) * + ?<br>叫作 符 元字符 (metacharacter), 之所以这样称呼是因为它们具有特殊的意义. 一个由单个非<br>元字符构成的正则表达式匹配它自身. 于是, 一个字母或一个数字都算作是一个基本的正则<br>表达式, 与自身相匹配. 为了在正则表达式中保留元字符的字面意义, 需要在字符的前面加<br>上反斜杠. 于是, \$ 匹配普通字符 $. 如果某个字符前面冠有 \, 我们就说该字符是被  引用<br>(quoted) 的.<br>在一个正则表达式中, 一个未被引用的脱字符 ^ 表示一行的开始, 一个未被引用的美元<br>符 $ 匹配一行的结束, 一个未被引用的句点 . 匹配任意一个字符. 于是,<br>^C 匹配以字符 C 开始的字符串;<br>C$ 匹配以字符 C 结束的字符串;<br>^C$ 匹配只含有单个字符 C 的字符串;<br>^.$ 匹配有且仅有一个字符的字符串;<br>^…$ 匹配有且仅有 3 个字符的字符串;<br>… 匹配任意 3 个字符;<br>.$ 匹配以句点结束的字符串.</p>
+<p>由一组被包围在方括号中的字符组成的正则表达式称为 类 字符类 (character class); 这个表达式匹配字符类中的任意一个字符. 例如, [AEIOU] 匹配 A, E, I, O 或 U.使用连字符的字符类可以表示一段字符范围. 紧跟在连字符左边的字符定义了范围的开始, 紧跟在连字符右边的字符定义了范围的结束. 于是, [0-9] 匹配任意一个数字,[a-zA-Z][0-9] 匹配一个后面紧跟着一个数字的字母. 如果左右两边都没有操作数, 那么字符类中的连字符就表示它本身, 所以 [+-] 与 [-+] 匹配一个 + 或 -. [A-Za-z-]+ 匹配一个可能包含连字符的单词.<br>一个 补 互补 (complemented) 的字符类在 [ 之后以 ^ 开始. 这样一个类匹配任意一个不在类中的字符, “类中的字符” 指的是方括号内排在脱字符之后的那些字符. 于是, [^0-9]匹配任意一个不是数字的字符; [^a-zA-Z] 匹配任意一个不是字母的字符.<br>^[ABC] 匹配以 A, B, 或 C 开始的字符串;<br>^[^ABC] 匹配以任意一个字符 (除了 A, B, 或 C) 开始的字符串;<br>[^ABC] 匹配任意一个字符, 除了 A, B, 或 C;<br>^[^a-z]$ 匹配任意一个有且仅有一个字符的字符串, 且该字符不能是小写字母.</p>
+<p>在一个字符类中, 所有的字符都具有它自身的字面意义, 除了引用字符 \, 互补字符类开头的 ^, 以及两个字符间的 -. 于是, [.] 匹配一个句点, ^[^^] 匹配不以脱字符开始的字符串.<br>可以使用括号来指定正则表达式中的各个成分如何组合. 有两种二元正则表达式运算符: 选择与拼接. 选择运算符 | 用来指定一个选择: 如果 r 1 与 r 2 是正则表达式, 那么 r 1 |r 2所匹配的字符串, 或者与 r 1 , 或者与 r 2 匹配.<br>Awk 不存在显式的拼接运算符. 如果 r 1 与 r 2 是正则表达式, 那么 (r 1 )(r 1 ) (在 (r 1 )与 (r 2 ) 之间没有空格) 所匹配的字符串具有形式 xy, 其中 x 被 r 1 匹配, y 被 r 2 匹配. 如果被括号包围的正则表达式不包含选择运算符, 那么 r 1 或 r 2 两边的括号就可以省略. 正则表达式<br>(Asian|European|North American) (male|female) (black|blue)bird<br>一共匹配 12 种字符串, 从<br>Asian male blackbird<br>到</p>
+<p>注：The AWK Programming Language学习笔记</p>
+
+      
+    </div>
+
+    
+<div>
+      
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+              -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+        </div>
+    
+</div>
+      
+</div>
+<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/07/27/awk（4）/">awk（4）-Awk语言（上）</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 clay-wangzhi 的个人博客">clay-wangzhi</a></p>
+  <p><span>发布时间:</span>2018年07月27日 - 18:07</p>
+  <p><span>最后更新:</span>2018年07月27日 - 19:07</p>
+  <p><span>原始链接:</span><a href="/2018/07/27/awk（4）/" title="awk（4）-Awk语言（上）">https://clay-wangzhi.github.io/2018/07/27/awk（4）/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://clay-wangzhi.github.io/2018/07/27/awk（4）/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      
+</div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/awk/" rel="tag"><i class="fa fa-tag"></i> awk</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/27/awk（3）/" rel="next" title="awk（3）-快速入门（下）">
+                <i class="fa fa-chevron-left"></i> awk（3）-快速入门（下）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/27/每天一个linux命令（1）-ls/" rel="prev" title="每天一个linux命令（1）-ls">
+                每天一个linux命令（1）-ls <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/go_logo.png"
+                alt="clay-wangzhi" />
+            
+              <p class="site-author-name" itemprop="name">clay-wangzhi</p>
+              <p class="site-description motion-element" itemprop="description">区块链、Linux、前端相关技术</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">82</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:clay.wangzhi@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-linux"></i>
+                Linux加油站
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://man.linuxde.net/" title="Linux命令大全" target="_blank">Linux命令大全</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#输入文件-countries"><span class="nav-number">1.</span> <span class="nav-text">输入文件 countries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序格式"><span class="nav-number">2.</span> <span class="nav-text">程序格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式"><span class="nav-number">3.</span> <span class="nav-text">模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BEGIN-与-与-END"><span class="nav-number">3.1.</span> <span class="nav-text">BEGIN 与 与 END</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-countries-with-column-headers-and-totals"><span class="nav-number"></span> <span class="nav-text">print countries with column headers and totals</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将表达式用作模式"><span class="nav-number">0.1.</span> <span class="nav-text">将表达式用作模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串匹配模式"><span class="nav-number">0.2.</span> <span class="nav-text">字符串匹配模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式"><span class="nav-number">0.3.</span> <span class="nav-text">正则表达式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">clay-wangzhi</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">326k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">4:57</span>
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>

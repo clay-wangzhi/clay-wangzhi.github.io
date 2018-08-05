@@ -1,1 +1,1555 @@
-<!-- build time:Sun Aug 05 2018 08:09:18 GMT+0800 (中国标准时间) --><!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=6.3.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=6.3.0"><link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"6.3.0",sidebar:{position:"left","Pisces | Gemini":240,display:"always",offset:12,b2t:!0,scrollpercent:!0,onmobile:!1},fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="​ 好了，现在正式开始学习前端了，先从html开始吧，本节介绍的内容有HTML初始、HTML骨架、HTML的基本语法特性、h和p标签、图片、超级链接。"><meta name="keywords" content="HTML"><meta property="og:type" content="article"><meta property="og:title" content="浅谈HTML"><meta property="og:url" content="https://clay-wangzhi.github.io/2018/07/10/html2/index.html"><meta property="og:site_name" content="Clay&#39;s Blog"><meta property="og:description" content="​ 好了，现在正式开始学习前端了，先从html开始吧，本节介绍的内容有HTML初始、HTML骨架、HTML的基本语法特性、h和p标签、图片、超级链接。"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://clay-wangzhi.github.io/images/html2.png"><meta property="og:image" content="https://clay-wangzhi.github.io/images/html3.png"><meta property="og:image" content="https://clay-wangzhi.github.io/images/title.png"><meta property="og:image" content="https://clay-wangzhi.github.io/images/kongbai.png"><meta property="og:image" content="https://clay-wangzhi.github.io/images/href.png"><meta property="og:image" content="https://clay-wangzhi.github.io/images/jiehun.png"><meta property="og:updated_time" content="2018-07-11T14:35:06.577Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="浅谈HTML"><meta name="twitter:description" content="​ 好了，现在正式开始学习前端了，先从html开始吧，本节介绍的内容有HTML初始、HTML骨架、HTML的基本语法特性、h和p标签、图片、超级链接。"><meta name="twitter:image" content="https://clay-wangzhi.github.io/images/html2.png"><link rel="canonical" href="https://clay-wangzhi.github.io/2018/07/10/html2/"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>浅谈HTML | Clay's Blog</title><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}</style></noscript></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Clay's Blog</span> <span class="logo-line-after"><i></i></span></a></div></div><div class="site-nav-toggle"><button aria-label="切换导航栏"><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签<span class="badge">9</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档<span class="badge">82</span></a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><a href="https://github.com/clay-wangzhi" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222;color:#fff;position:absolute;top:0;border:0;right:0" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://clay-wangzhi.github.io/2018/07/10/html2/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="clay-wangzhi"><meta itemprop="description" content="区块链、Linux、前端相关技术"><meta itemprop="image" content="/images/go_logo.png"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="Clay's Blog"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">浅谈HTML</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2018-07-10 15:00:00" itemprop="dateCreated datePublished" datetime="2018-07-10T15:00:00+08:00">2018-07-10</time> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i> </span><span class="post-meta-item-text">更新于</span> <time title="修改时间：2018-07-11 22:35:06" itemprop="dateModified" datetime="2018-07-11T22:35:06+08:00">2018-07-11</time> </span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span></span><div class="post-symbolscount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i> </span><span class="post-meta-item-text">本文字数：</span> <span title="本文字数">4.4k</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span title="阅读时长">4 分钟</span></div></div></header><div class="post-body" itemprop="articleBody"><p>​ 好了，现在正式开始学习前端了，先从html开始吧，本节介绍的内容有HTML初始、HTML骨架、HTML的基本语法特性、h和p标签、图片、超级链接。</p><a id="more"></a><h2 id="HTML初识"><a href="#HTML初识" class="headerlink" title="HTML初识"></a>HTML初识</h2><h3 id="网页的原理"><a href="#网页的原理" class="headerlink" title="网页的原理"></a>网页的原理</h3><p>用户输入网址之后，对应的服务器就发现有人请求我的网页了，所以这个服务器就会把网页和相关的图片、js文件、css文件、flash文件都通过HTTP协议传输到用户的电脑里面。HTML页面在用户的电脑里面进行渲染。HTTP协议指的是超文本传输协议。每一个网址，都对应了服务器上面的确定的文件。</p><h3 id="纯文本文件"><a href="#纯文本文件" class="headerlink" title="纯文本文件"></a>纯文本文件</h3><p>只有内容，没有样式。常见的纯文本文件有：.txt、.html、.js、.css、.java。没有语义，即使你这个文件中的内容排版再清晰，那也是人认为的，实际上纯文本文件中的所有的文字生而平等，没有任何的语义。</p><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><p>超文本标记语言，HyperText Markup Language。就是通过标签对儿，给纯文本增加语义。也就是说，用文本给文本增加语义，所以这个叫做“超文本”。而有一对儿对儿标签，也成为“标记”，所以就是“超文本标记语言”。</p><h3 id="html"><a href="#html" class="headerlink" title=".html"></a>.html</h3><p>.html网页的格式，现在的业界的标准，网页技术严格的三层分离：<strong>html</strong>就是负责描述页面的语义；css负责描述页面的样式；js负责描述页面的动态效果的。</p><h2 id="HTML骨架"><a href="#HTML骨架" class="headerlink" title="HTML骨架"></a>HTML骨架</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="文档声明头"><a href="#文档声明头" class="headerlink" title="文档声明头"></a>文档声明头</h3><p>任何一个标准的HTML页面，第一行一定是一个以</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE ...</span></span><br></pre></td></tr></table></figure><h3 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>字符集用meta标签定义，meta表示“元”。“元”配置，就是表示基本的配置项目。</p><p><strong>charset</strong>就是charactor set“字符集”的意思。</p><p>中文能够使用的字符集两种：</p><p>第一种：UTF-8</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>第二种：gb2312</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"gb2312"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>也可以写成gbk</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"gbk"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>规模： UTF-8（字全） &gt; gb2312（只有汉字）</p><p><strong>我们用meta标签可以声明当前这个html文档的字库，但是一定要和保存的类型一样，否则乱码！（重点）</strong></p><p><img src="/images/html2.png" alt=""></p><p>当我们不设置的时候，sublime默认类型就是UTF-8。而一旦更改为gb2312的时候，就一定要记得设置一下sublime的保存类型： 文件→ set File Encoding to →Chinese Simplified(GBK)</p><p>记住两者匹配：</p><p><img src="/images/html3.png" alt=""></p><p>注意，由于UTF-8里面保存了世界上所有人类语言，所以描述一个汉字需要的码更多。</p><p><strong>UTF-8里面存储一个汉字3个字节。而gb2312中存储一个汉字2个字节。</strong></p><p><strong>保存大小： UTF-8（更臃肿、加载更慢） &gt; gb2312 （更小巧，加载更快）</strong></p><p>总结：</p><p>UTF-8 字多，有各种国家的语言，但是保存尺寸大，文件臃肿；</p><p>gb2312字少，只用中文和少数外语和符号，但是尺寸小，文件小巧。</p><h3 id="title标签"><a href="#title标签" class="headerlink" title="title标签"></a>title标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>网页的标题<span class="tag">&lt;/<span class="name">titile</span>&gt;</span></span><br></pre></td></tr></table></figure><p>title也是有助于SEO搜索引擎优化的</p><p><img src="/images/title.png" alt=""></p><h2 id="HTML的基本语法特性"><a href="#HTML的基本语法特性" class="headerlink" title="HTML的基本语法特性"></a>HTML的基本语法特性</h2><h3 id="HTML对换行不敏感，对tab不敏感"><a href="#HTML对换行不敏感，对tab不敏感" class="headerlink" title="HTML对换行不敏感，对tab不敏感"></a>HTML对换行不敏感，对tab不敏感</h3><p>HTML只在乎标签的嵌套结构，嵌套的关系。谁嵌套了谁，谁被谁嵌套了，和换行、tab无关。</p><p>换不换行、tab不tab，都不影响页面的结构。</p><p>所以：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><p>完全等价于：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h3</span>&gt;</span><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><p>就是说，<strong>HTML不是依靠缩进来表示嵌套的，就是看标签的包裹关系。但是，我们发现有良好的缩进，代码更易读。要求大家都正确缩进标签。</strong></p><h3 id="空白折叠现象"><a href="#空白折叠现象" class="headerlink" title="空白折叠现象"></a>空白折叠现象</h3><p><strong>HTML中所有的文字之间，如果有空格、换行、tab都将被折叠为一个空格显示。</strong></p><p>代码：里面有空格、缩进、换行</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>clay</span><br><span class="line"></span><br><span class="line">		wangzhi<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure><p><img src="/images/kongbai.png" alt=""></p><h3 id="标签要严格封闭"><a href="#标签要严格封闭" class="headerlink" title="标签要严格封闭"></a>标签要严格封闭</h3><p>标签不封闭是灾难的：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>欢迎<span class="tag">&lt;<span class="name">title</span>&gt;</span></span><br></pre></td></tr></table></figure><p>HTML、CSS就是写代码，不能算“编程”，因为这里面没有业务逻辑，加减乘除，与或非。</p><p>说白了，就是用代码画画。</p><h2 id="h和p标签"><a href="#h和p标签" class="headerlink" title="h和p标签"></a>h和p标签</h2><h3 id="h系列"><a href="#h系列" class="headerlink" title="h系列"></a>h系列</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span> 到 <span class="tag">&lt;<span class="name">h6</span>&gt;</span> 都是标签：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span>一级标题</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span>二级标题</span><br><span class="line"></span><br><span class="line">……</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span><span class="tag">&lt;/<span class="name">h6</span>&gt;</span>六级标题</span><br></pre></td></tr></table></figure><p>h标签没有嵌套关系的。由于h3跟着一个h2，所以，我们自己就知道了这个h3是h2子标题。</p><p>h是容器级的标签。理论上里面可以放置p、ul，只是法律上的允许，在语义上，不要这么写。</p><h3 id="p标签"><a href="#p标签" class="headerlink" title="p标签"></a>p标签</h3><p>段落，是英语<strong>p</strong>aragraph“段落”缩写。</p><p>HTML标签是分等级的，HTML将所有的标签分为两种：<strong>容器级、文本级</strong>。</p><p>顾名思义，<font color="#ff0000"><strong>容器级的标签，里面可以放置任何东西；文本级的标签里面，只能放置文字、图片、表单元素</strong>。</font></p><p>p标签是一个文本级标签。从学习p的第一天开始，就要死死记住：p里面只能放文字、图片、表单元素。其他的一律不能放。</p><p>Chrome浏览器是世界上HTML5支持最好的浏览器。提供了非常好的开发工具，非常适合我们开发人员使用。审查元素功能的快捷键是F12。</p><p>Chrome的英语原意“硅”，是谷歌公司的产品，所以也叫作谷歌浏览器。</p><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><h3 id="能用的图片类型"><a href="#能用的图片类型" class="headerlink" title="能用的图片类型"></a>能用的图片类型</h3><p>页面上可以插入图片，能够插入的图片类型是：jpg(jpeg)、gif、png、bmp。类型和类型之间有什么区别。</p><p>不能往网页中插入的图片格式是：psd、ai。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>HTML页面不是直接插入图片，而是插入图片的引用地址，所以也要把图片上传到服务器上。</p><p>插入方法：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"baby.jpg"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>img是英语<strong>im</strong>a<strong>g</strong>e“图片”的简写</p><p>src 是英语<strong>s</strong>ou<strong>rc</strong>e“资源”的简写，千万不要写成scr。</p><p><strong>src是img标签的属性，baby.jpg是这个属性的值。</strong></p><p>这个标签和我们之前学的，都不一样，因为这个标签不是“对儿”。<strong>自封闭标签，也称为单标签。</strong></p><p>为什么？原因很简单，如果是对儿，里面就要有内容，表示给这个内容增加语义。比如</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"<span class="tag">&lt;<span class="name">h1</span>&gt;</span>哈哈哈哈，我是主标题啦！！！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>"</span><br></pre></td></tr></table></figure><p>图片就是一个图片，不需要给什么文字增加语义，所以就是自己一个人活得挺好：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"<span class="tag">&lt;<span class="name">img</span> /&gt;</span>"</span><br></pre></td></tr></table></figure><p>meta也是自封闭标签：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></span><br></pre></td></tr></table></figure><h3 id="alt属性"><a href="#alt属性" class="headerlink" title="alt属性"></a>alt属性</h3><p>alt属性：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"baby.jpg"</span> <span class="attr">alt</span>=<span class="string">"巴黎结婚照"</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>alt是英语alternate“替代”的意思，就表示不管因为什么原因，当这个图片无法被显示的时候，出现的替代文字（有的浏览器不支持）。</p><h2 id="超级链接"><a href="#超级链接" class="headerlink" title="超级链接"></a>超级链接</h2><h3 id="基本写法"><a href="#基本写法" class="headerlink" title="基本写法"></a>基本写法</h3><p>一个网站，是由很多html网页组成的，html网页之间能够通过超级链接互相跳转，从而形成了“网”。</p><p>语法：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"1.html"</span>&gt;</span>结婚照<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><p>效果图：</p><p><img src="/images/href.png" alt=""></p><p>a是英语anchor“锚”的意思，就好像这个页面往另一个页面扔出了一个锚。是一个文本级的标签。</p><p>href是英语<strong>h</strong>ypertext <strong>ref</strong>erence超文本地址的缩写。读作“喝瑞夫”。</p><h3 id="a标签的另外两个属性"><a href="#a标签的另外两个属性" class="headerlink" title="a标签的另外两个属性"></a>a标签的另外两个属性</h3><p>title 悬停文本</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"09_img.html"</span> <span class="attr">title</span>=<span class="string">"很好看哦"</span>&gt;</span>结婚照<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><p><img src="/images/jiehun.png" alt=""></p><p>target 是否在新窗口中打开</p><p>target实际上是“目标”的意思。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"09_img.html"</span> <span class="attr">title</span>=<span class="string">"很好看哦"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>结婚照<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><p>blank就是“空白”的意思，就表示新建一个空白窗口。</p><p>也就是说，如果不写target=”_blank”那么就是在相同的标签页打开，如果写了，就是在新的空白标签页中打开。</p><p>完整的超级链接：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"1.html"</span> <span class="attr">title</span>=<span class="string">"悬停文本"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>链接的内容<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="页面内的锚点"><a href="#页面内的锚点" class="headerlink" title="页面内的锚点"></a>页面内的锚点</h3><p>页面当中可以有锚点，所谓的锚点，就是一个小标记，这个小标记是用户不可察觉的，用户不知道这里有一个标记。</p><p>锚点用name属性来设置，一个a标签如果name属性（或者id属性），那么就是页面的一个锚点。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">name</span>=<span class="string">"wdzp"</span>&gt;</span>我的作品<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">或者：</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"wdzp"</span>&gt;</span>我的作品<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><p>页面内锚点</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#gzjy"</span>&gt;</span>点击我就查看工作经验<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#wdzp"</span>&gt;</span>点击我就查看我的作品<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>个人简介<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>基本信息<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>基本信息<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"gzjy"</span>&gt;</span>工作经验<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>工作经验<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">name</span>=<span class="string">"wdzp"</span>&gt;</span>我的作品<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>作品展示<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure><p>跨页面锚点</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"11_页面内锚点.html#gzjy"</span>&gt;</span>查看小明同学的工作经验<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="a是一个文本级的标签"><a href="#a是一个文本级的标签" class="headerlink" title="a是一个文本级的标签"></a>a是一个文本级的标签</h3><p>比如一个段落中的所有文字都能够被点击，那么应该：</p><p>p包裹a：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>段落<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure><p>而不是a包裹p：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">		段落</span><br><span class="line">	<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><p>a的语义要小于p，a就是可以当做文本来处理，所以p里面相当于放的就是纯文字。</p></div><div><div><div style="text-align:center;color:#ccc;font-size:14px">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div></div></div><div><div class="my_post_copyright"><script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script><script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script><script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><p><span>本文标题:</span><a href="/2018/07/10/html2/">浅谈HTML</a></p><p><span>文章作者:</span><a href="/" title="访问 clay-wangzhi 的个人博客">clay-wangzhi</a></p><p><span>发布时间:</span>2018年07月10日 - 15:07</p><p><span>最后更新:</span>2018年07月11日 - 22:07</p><p><span>原始链接:</span><a href="/2018/07/10/html2/" title="浅谈HTML">https://clay-wangzhi.github.io/2018/07/10/html2/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://clay-wangzhi.github.io/2018/07/10/html2/" aria-label="复制成功！"></i></span></p><p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p></div><script>var clipboard=new Clipboard(".fa-clipboard");$(".fa-clipboard").click(function(){clipboard.on("success",function(){swal({title:"",text:"复制成功",icon:"success",showConfirmButton:!0})})})</script></div><footer class="post-footer"><div class="post-tags"><a href="/tags/HTML/" rel="tag"><i class="fa fa-tag"></i> HTML</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2018/07/05/新建博客方法/" rel="next" title="hexo(next)+github博客重建"><i class="fa fa-chevron-left"></i> hexo(next)+github博客重建</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="/2018/07/10/css1/" rel="prev" title="浅谈CSS（列表、div、span）">浅谈CSS（列表、div、span） <i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap">站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="/images/go_logo.png" alt="clay-wangzhi"><p class="site-author-name" itemprop="name">clay-wangzhi</p><p class="site-description motion-element" itemprop="description">区块链、Linux、前端相关技术</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">82</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/index.html"><span class="site-state-item-count">3</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/index.html"><span class="site-state-item-count">9</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="mailto:clay.wangzhi@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a></span></div><div class="links-of-blogroll motion-element links-of-blogroll-block"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-linux"></i> Linux加油站</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"><a href="http://man.linuxde.net/" title="Linux命令大全" target="_blank">Linux命令大全</a></li></ul></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML初识"><span class="nav-number">1.</span> <span class="nav-text">HTML初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网页的原理"><span class="nav-number">1.1.</span> <span class="nav-text">网页的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纯文本文件"><span class="nav-number">1.2.</span> <span class="nav-text">纯文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML"><span class="nav-number">1.3.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html"><span class="nav-number">1.4.</span> <span class="nav-text">.html</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML骨架"><span class="nav-number">2.</span> <span class="nav-text">HTML骨架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文档声明头"><span class="nav-number">2.1.</span> <span class="nav-text">文档声明头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符集"><span class="nav-number">2.2.</span> <span class="nav-text">字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#title标签"><span class="nav-number">2.3.</span> <span class="nav-text">title标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML的基本语法特性"><span class="nav-number">3.</span> <span class="nav-text">HTML的基本语法特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML对换行不敏感，对tab不敏感"><span class="nav-number">3.1.</span> <span class="nav-text">HTML对换行不敏感，对tab不敏感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空白折叠现象"><span class="nav-number">3.2.</span> <span class="nav-text">空白折叠现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签要严格封闭"><span class="nav-number">3.3.</span> <span class="nav-text">标签要严格封闭</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#h和p标签"><span class="nav-number">4.</span> <span class="nav-text">h和p标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#h系列"><span class="nav-number">4.1.</span> <span class="nav-text">h系列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#p标签"><span class="nav-number">4.2.</span> <span class="nav-text">p标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">5.</span> <span class="nav-text">图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#能用的图片类型"><span class="nav-number">5.1.</span> <span class="nav-text">能用的图片类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">5.2.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alt属性"><span class="nav-number">5.3.</span> <span class="nav-text">alt属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超级链接"><span class="nav-number">6.</span> <span class="nav-text">超级链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本写法"><span class="nav-number">6.1.</span> <span class="nav-text">基本写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a标签的另外两个属性"><span class="nav-number">6.2.</span> <span class="nav-text">a标签的另外两个属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面内的锚点"><span class="nav-number">6.3.</span> <span class="nav-text">页面内的锚点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a是一个文本级的标签"><span class="nav-number">6.4.</span> <span class="nav-text">a是一个文本级的标签</span></a></li></ol></li></ol></div></div></section><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span> <span class="with-love" id="animate"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">clay-wangzhi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-area-chart"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">319k</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">4:50</span></div></div></footer></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script><script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script><script type="text/javascript">function proceedsearch(){$("body").append('<div class="search-popup-overlay local-search-pop-overlay"></div>').css("overflow","hidden"),$(".search-popup-overlay").click(onPopupClose),$(".popup").toggle();var t=$("#local-search-input");t.attr("autocapitalize","none"),t.attr("autocorrect","off"),t.focus()}var isfetched=!1,isXml=!0,search_path="search.xml";0===search_path.length?search_path="search.xml":/json$/i.test(search_path)&&(isXml=!1);var path="/"+search_path,onPopupClose=function(t){$(".popup").hide(),$("#local-search-input").val(""),$(".search-result-list").remove(),$("#no-result").remove(),$(".local-search-pop-overlay").remove(),$("body").css("overflow","")},searchFunc=function(t,e,o){"use strict";$("body").append('<div class="search-popup-overlay local-search-pop-overlay"><div id="search-loading-icon"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div>').css("overflow","hidden"),$("#search-loading-icon").css("margin","20% auto 0 auto").css("text-align","center"),$.ajax({url:t,dataType:isXml?"xml":"json",async:!0,success:function(t){isfetched=!0,$(".popup").detach().appendTo(".header-inner");var n=isXml?$("entry",t).map(function(){return{title:$("title",this).text(),content:$("content",this).text(),url:$("url",this).text()}}).get():t,r=document.getElementById(e),s=document.getElementById(o),a=function(){var t=r.value.trim().toLowerCase(),e=t.split(/[\s\-]+/);e.length>1&&e.push(t);var o=[];if(t.length>0&&n.forEach(function(n){function r(e,o,n,r){for(var s=r[r.length-1],a=s.position,i=s.word,l=[],h=0;a+i.length<=n&&0!=r.length;){i===t&&h++,l.push({position:a,length:i.length});var p=a+i.length;for(r.pop();0!=r.length&&(s=r[r.length-1],a=s.position,i=s.word,p>a);)r.pop()}return c+=h,{hits:l,start:o,end:n,searchTextCount:h}}function s(t,e){var o="",n=e.start;return e.hits.forEach(function(e){o+=t.substring(n,e.position);var r=e.position+e.length;o+='<b class="search-keyword">'+t.substring(e.position,r)+"</b>",n=r}),o+=t.substring(n,e.end)}var a=!1,i=0,c=0,l=n.title.trim(),h=l.toLowerCase(),p=n.content.trim().replace(/<[^>]+>/g,""),u=p.toLowerCase(),f=decodeURIComponent(n.url),d=[],g=[];if(""!=l&&(e.forEach(function(t){function e(t,e,o){var n=t.length;if(0===n)return[];var r=0,s=[],a=[];for(o||(e=e.toLowerCase(),t=t.toLowerCase());(s=e.indexOf(t,r))>-1;)a.push({position:s,word:t}),r=s+n;return a}d=d.concat(e(t,h,!1)),g=g.concat(e(t,u,!1))}),(d.length>0||g.length>0)&&(a=!0,i=d.length+g.length)),a){[d,g].forEach(function(t){t.sort(function(t,e){return e.position!==t.position?e.position-t.position:t.word.length-e.word.length})});var v=[];0!=d.length&&v.push(r(l,0,l.length,d));for(var $=[];0!=g.length;){var C=g[g.length-1],m=C.position,x=C.word,w=m-20,y=m+80;0>w&&(w=0),y<m+x.length&&(y=m+x.length),y>p.length&&(y=p.length),$.push(r(p,w,y,g))}$.sort(function(t,e){return t.searchTextCount!==e.searchTextCount?e.searchTextCount-t.searchTextCount:t.hits.length!==e.hits.length?e.hits.length-t.hits.length:t.start-e.start});var T=parseInt("1");T>=0&&($=$.slice(0,T));var b="";b+=0!=v.length?"<li><a href='"+f+"' class='search-result-title'>"+s(l,v[0])+"</a>":"<li><a href='"+f+"' class='search-result-title'>"+l+"</a>",$.forEach(function(t){b+="<a href='"+f+'\'><p class="search-result">'+s(p,t)+"...</p></a>"}),b+="</li>",o.push({item:b,searchTextCount:c,hitCount:i,id:o.length})}}),1===e.length&&""===e[0])s.innerHTML='<div id="no-result"><i class="fa fa-search fa-5x" /></div>';else if(0===o.length)s.innerHTML='<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>';else{o.sort(function(t,e){return t.searchTextCount!==e.searchTextCount?e.searchTextCount-t.searchTextCount:t.hitCount!==e.hitCount?e.hitCount-t.hitCount:e.id-t.id});var a='<ul class="search-result-list">';o.forEach(function(t){a+=t.item}),a+="</ul>",s.innerHTML=a}};r.addEventListener("input",a),$(".local-search-pop-overlay").remove(),$("body").css("overflow",""),proceedsearch()}})};$(".popup-trigger").click(function(t){t.stopPropagation(),isfetched===!1?searchFunc(path,"local-search-input","local-search-result"):proceedsearch()}),$(".popup-btn-close").click(onPopupClose),$(".popup").click(function(t){t.stopPropagation()}),$(document).on("keyup",function(t){var e=27===t.which&&$(".search-popup").is(":visible");e&&onPopupClose()})</script><script>!function(){var t=document.createElement("script"),s=window.location.protocol.split(":")[0];"https"===s?t.src="https://zz.bdstatic.com/linksubmit/push.js":t.src="http://push.zhanzhang.baidu.com/push.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()</script><style>.copy-btn{display:inline-block;padding:6px 12px;font-size:13px;font-weight:700;line-height:20px;color:#333;white-space:nowrap;vertical-align:middle;cursor:pointer;background-color:#eee;background-image:linear-gradient(#fcfcfc,#eee);border:1px solid #d5d5d5;border-radius:3px;user-select:none;outline:0}.highlight-wrap .copy-btn{transition:opacity .3s ease-in-out;opacity:0;padding:2px 6px;position:absolute;right:4px;top:8px}.highlight-wrap .copy-btn:focus,.highlight-wrap:hover .copy-btn{opacity:1}.highlight-wrap{position:relative}</style><script>$(".highlight").each(function(t,e){var n=$("<div>").addClass("highlight-wrap");$(e).after(n),n.append($("<button>").addClass("copy-btn").append("复制").on("click",function(t){var e=$(this).parent().find(".code").find(".line").map(function(t,e){return $(e).text()}).toArray().join("\n"),n=document.createElement("textarea");document.body.appendChild(n),n.style.position="absolute",n.style.top="0px",n.style.left="0px",n.value=e,n.select(),n.focus();var o=document.execCommand("copy");document.body.removeChild(n),o?$(this).text("复制成功"):$(this).text("复制失败"),$(this).blur()})).on("mouseleave",function(t){var e=$(this).find(".copy-btn");setTimeout(function(){e.text("复制")},300)}).append(e)})</script></body></html><!-- rebuild by neat -->
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","Pisces | Gemini":240,"display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="​    好了，现在正式开始学习前端了，先从html开始吧，本节介绍的内容有HTML初始、HTML骨架、HTML的基本语法特性、h和p标签、图片、超级链接。">
+<meta name="keywords" content="HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈HTML">
+<meta property="og:url" content="https://clay-wangzhi.github.io/2018/07/10/html2/index.html">
+<meta property="og:site_name" content="Clay&#39;s Blog">
+<meta property="og:description" content="​    好了，现在正式开始学习前端了，先从html开始吧，本节介绍的内容有HTML初始、HTML骨架、HTML的基本语法特性、h和p标签、图片、超级链接。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://clay-wangzhi.github.io/images/html2.png">
+<meta property="og:image" content="https://clay-wangzhi.github.io/images/html3.png">
+<meta property="og:image" content="https://clay-wangzhi.github.io/images/title.png">
+<meta property="og:image" content="https://clay-wangzhi.github.io/images/kongbai.png">
+<meta property="og:image" content="https://clay-wangzhi.github.io/images/href.png">
+<meta property="og:image" content="https://clay-wangzhi.github.io/images/jiehun.png">
+<meta property="og:updated_time" content="2018-07-11T14:35:06.577Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈HTML">
+<meta name="twitter:description" content="​    好了，现在正式开始学习前端了，先从html开始吧，本节介绍的内容有HTML初始、HTML骨架、HTML的基本语法特性、h和p标签、图片、超级链接。">
+<meta name="twitter:image" content="https://clay-wangzhi.github.io/images/html2.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://clay-wangzhi.github.io/2018/07/10/html2/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>浅谈HTML | Clay's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Clay's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">9</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">3</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">82</span></a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/clay-wangzhi" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://clay-wangzhi.github.io/2018/07/10/html2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="clay-wangzhi">
+      <meta itemprop="description" content="区块链、Linux、前端相关技术">
+      <meta itemprop="image" content="/images/go_logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clay's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">浅谈HTML
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-10 15:00:00" itemprop="dateCreated datePublished" datetime="2018-07-10T15:00:00+08:00">2018-07-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-11 22:35:06" itemprop="dateModified" datetime="2018-07-11T22:35:06+08:00">2018-07-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">4.5k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">4 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>​    好了，现在正式开始学习前端了，先从html开始吧，本节介绍的内容有HTML初始、HTML骨架、HTML的基本语法特性、h和p标签、图片、超级链接。</p>
+<a id="more"></a>
+<h2 id="HTML初识"><a href="#HTML初识" class="headerlink" title="HTML初识"></a>HTML初识</h2><h3 id="网页的原理"><a href="#网页的原理" class="headerlink" title="网页的原理"></a>网页的原理</h3><p>用户输入网址之后，对应的服务器就发现有人请求我的网页了，所以这个服务器就会把网页和相关的图片、js文件、css文件、flash文件都通过HTTP协议传输到用户的电脑里面。HTML页面在用户的电脑里面进行渲染。HTTP协议指的是超文本传输协议。每一个网址，都对应了服务器上面的确定的文件。</p>
+<h3 id="纯文本文件"><a href="#纯文本文件" class="headerlink" title="纯文本文件"></a>纯文本文件</h3><p>只有内容，没有样式。常见的纯文本文件有：.txt、.html、.js、.css、.java。没有语义，即使你这个文件中的内容排版再清晰，那也是人认为的，实际上纯文本文件中的所有的文字生而平等，没有任何的语义。</p>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><p>超文本标记语言，HyperText Markup Language。就是通过标签对儿，给纯文本增加语义。也就是说，用文本给文本增加语义，所以这个叫做“超文本”。而有一对儿对儿标签，也成为“标记”，所以就是“超文本标记语言”。</p>
+<h3 id="html"><a href="#html" class="headerlink" title=".html"></a>.html</h3><p>.html网页的格式，现在的业界的标准，网页技术严格的三层分离：<strong>html</strong>就是负责描述页面的语义；css负责描述页面的样式；js负责描述页面的动态效果的。</p>
+<h2 id="HTML骨架"><a href="#HTML骨架" class="headerlink" title="HTML骨架"></a>HTML骨架</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="文档声明头"><a href="#文档声明头" class="headerlink" title="文档声明头"></a>文档声明头</h3><p>任何一个标准的HTML页面，第一行一定是一个以</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE ...</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>字符集用meta标签定义，meta表示“元”。“元”配置，就是表示基本的配置项目。</p>
+<p><strong>charset</strong>就是charactor set“字符集”的意思。</p>
+<p>中文能够使用的字符集两种：</p>
+<p>第一种：UTF-8</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二种：gb2312</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"gb2312"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>也可以写成gbk</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"gbk"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>规模： UTF-8（字全） &gt; gb2312（只有汉字）</p>
+<p><strong>我们用meta标签可以声明当前这个html文档的字库，但是一定要和保存的类型一样，否则乱码！（重点）</strong></p>
+<p><img src="/images/html2.png" alt=""></p>
+<p>当我们不设置的时候，sublime默认类型就是UTF-8。而一旦更改为gb2312的时候，就一定要记得设置一下sublime的保存类型： 文件→ set File Encoding to →Chinese Simplified(GBK)</p>
+<p>记住两者匹配：</p>
+<p><img src="/images/html3.png" alt=""></p>
+<p>注意，由于UTF-8里面保存了世界上所有人类语言，所以描述一个汉字需要的码更多。</p>
+<p><strong>UTF-8里面存储一个汉字3个字节。而gb2312中存储一个汉字2个字节。</strong></p>
+<p><strong>保存大小：   UTF-8（更臃肿、加载更慢） &gt; gb2312 （更小巧，加载更快）</strong></p>
+<p>总结：</p>
+<p>UTF-8 字多，有各种国家的语言，但是保存尺寸大，文件臃肿；</p>
+<p>gb2312字少，只用中文和少数外语和符号，但是尺寸小，文件小巧。</p>
+<h3 id="title标签"><a href="#title标签" class="headerlink" title="title标签"></a>title标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>网页的标题<span class="tag">&lt;/<span class="name">titile</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>title也是有助于SEO搜索引擎优化的</p>
+<p><img src="/images/title.png" alt=""></p>
+<h2 id="HTML的基本语法特性"><a href="#HTML的基本语法特性" class="headerlink" title="HTML的基本语法特性"></a>HTML的基本语法特性</h2><h3 id="HTML对换行不敏感，对tab不敏感"><a href="#HTML对换行不敏感，对tab不敏感" class="headerlink" title="HTML对换行不敏感，对tab不敏感"></a>HTML对换行不敏感，对tab不敏感</h3><p>HTML只在乎标签的嵌套结构，嵌套的关系。谁嵌套了谁，谁被谁嵌套了，和换行、tab无关。</p>
+<p>换不换行、tab不tab，都不影响页面的结构。</p>
+<p>所以：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>完全等价于：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h3</span>&gt;</span><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>就是说，<strong>HTML不是依靠缩进来表示嵌套的，就是看标签的包裹关系。但是，我们发现有良好的缩进，代码更易读。要求大家都正确缩进标签。</strong></p>
+<h3 id="空白折叠现象"><a href="#空白折叠现象" class="headerlink" title="空白折叠现象"></a>空白折叠现象</h3><p><strong>HTML中所有的文字之间，如果有空格、换行、tab都将被折叠为一个空格显示。</strong></p>
+<p>代码：里面有空格、缩进、换行</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>clay</span><br><span class="line"></span><br><span class="line">		wangzhi<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/kongbai.png" alt=""></p>
+<h3 id="标签要严格封闭"><a href="#标签要严格封闭" class="headerlink" title="标签要严格封闭"></a>标签要严格封闭</h3><p>标签不封闭是灾难的：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>欢迎<span class="tag">&lt;<span class="name">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>HTML、CSS就是写代码，不能算“编程”，因为这里面没有业务逻辑，加减乘除，与或非。</p>
+<p>说白了，就是用代码画画。</p>
+<h2 id="h和p标签"><a href="#h和p标签" class="headerlink" title="h和p标签"></a>h和p标签</h2><h3 id="h系列"><a href="#h系列" class="headerlink" title="h系列"></a>h系列</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span> 到 <span class="tag">&lt;<span class="name">h6</span>&gt;</span> 都是标签：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span>一级标题</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span>二级标题</span><br><span class="line"></span><br><span class="line">……</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span><span class="tag">&lt;/<span class="name">h6</span>&gt;</span>六级标题</span><br></pre></td></tr></table></figure>
+<p>h标签没有嵌套关系的。由于h3跟着一个h2，所以，我们自己就知道了这个h3是h2子标题。</p>
+<p>h是容器级的标签。理论上里面可以放置p、ul，只是法律上的允许，在语义上，不要这么写。</p>
+<h3 id="p标签"><a href="#p标签" class="headerlink" title="p标签"></a>p标签</h3><p>段落，是英语<strong>p</strong>aragraph“段落”缩写。</p>
+<p>HTML标签是分等级的，HTML将所有的标签分为两种：<strong>容器级、文本级</strong>。</p>
+<p>顾名思义，<font color="#ff0000"><strong>容器级的标签，里面可以放置任何东西；文本级的标签里面，只能放置文字、图片、表单元素</strong>。</font></p>
+<p>p标签是一个文本级标签。从学习p的第一天开始，就要死死记住：p里面只能放文字、图片、表单元素。其他的一律不能放。</p>
+<p>Chrome浏览器是世界上HTML5支持最好的浏览器。提供了非常好的开发工具，非常适合我们开发人员使用。审查元素功能的快捷键是F12。</p>
+<p>Chrome的英语原意“硅”，是谷歌公司的产品，所以也叫作谷歌浏览器。</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><h3 id="能用的图片类型"><a href="#能用的图片类型" class="headerlink" title="能用的图片类型"></a>能用的图片类型</h3><p>页面上可以插入图片，能够插入的图片类型是：jpg(jpeg)、gif、png、bmp。类型和类型之间有什么区别。</p>
+<p>不能往网页中插入的图片格式是：psd、ai。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>HTML页面不是直接插入图片，而是插入图片的引用地址，所以也要把图片上传到服务器上。</p>
+<p>插入方法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"baby.jpg"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>img是英语<strong>im</strong>a<strong>g</strong>e“图片”的简写</p>
+<p>src 是英语<strong>s</strong>ou<strong>rc</strong>e“资源”的简写，千万不要写成scr。</p>
+<p><strong>src是img标签的属性，baby.jpg是这个属性的值。</strong></p>
+<p>这个标签和我们之前学的，都不一样，因为这个标签不是“对儿”。<strong>自封闭标签，也称为单标签。</strong></p>
+<p>为什么？原因很简单，如果是对儿，里面就要有内容，表示给这个内容增加语义。比如</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"<span class="tag">&lt;<span class="name">h1</span>&gt;</span>哈哈哈哈，我是主标题啦！！！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>"</span><br></pre></td></tr></table></figure>
+<p>图片就是一个图片，不需要给什么文字增加语义，所以就是自己一个人活得挺好：</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"<span class="tag">&lt;<span class="name">img</span> /&gt;</span>"</span><br></pre></td></tr></table></figure>
+<p>meta也是自封闭标签：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="alt属性"><a href="#alt属性" class="headerlink" title="alt属性"></a>alt属性</h3><p>alt属性：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"baby.jpg"</span> <span class="attr">alt</span>=<span class="string">"巴黎结婚照"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>alt是英语alternate“替代”的意思，就表示不管因为什么原因，当这个图片无法被显示的时候，出现的替代文字（有的浏览器不支持）。</p>
+<h2 id="超级链接"><a href="#超级链接" class="headerlink" title="超级链接"></a>超级链接</h2><h3 id="基本写法"><a href="#基本写法" class="headerlink" title="基本写法"></a>基本写法</h3><p>一个网站，是由很多html网页组成的，html网页之间能够通过超级链接互相跳转，从而形成了“网”。</p>
+<p>语法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"1.html"</span>&gt;</span>结婚照<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果图：</p>
+<p><img src="/images/href.png" alt=""></p>
+<p>a是英语anchor“锚”的意思，就好像这个页面往另一个页面扔出了一个锚。是一个文本级的标签。</p>
+<p>href是英语<strong>h</strong>ypertext <strong>ref</strong>erence超文本地址的缩写。读作“喝瑞夫”。</p>
+<h3 id="a标签的另外两个属性"><a href="#a标签的另外两个属性" class="headerlink" title="a标签的另外两个属性"></a>a标签的另外两个属性</h3><p>title 悬停文本</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"09_img.html"</span> <span class="attr">title</span>=<span class="string">"很好看哦"</span>&gt;</span>结婚照<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/jiehun.png" alt=""></p>
+<p>target 是否在新窗口中打开</p>
+<p>target实际上是“目标”的意思。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"09_img.html"</span> <span class="attr">title</span>=<span class="string">"很好看哦"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>结婚照<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>blank就是“空白”的意思，就表示新建一个空白窗口。</p>
+<p>也就是说，如果不写target=”_blank”那么就是在相同的标签页打开，如果写了，就是在新的空白标签页中打开。</p>
+<p>完整的超级链接：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"1.html"</span> <span class="attr">title</span>=<span class="string">"悬停文本"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>链接的内容<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="页面内的锚点"><a href="#页面内的锚点" class="headerlink" title="页面内的锚点"></a>页面内的锚点</h3><p>页面当中可以有锚点，所谓的锚点，就是一个小标记，这个小标记是用户不可察觉的，用户不知道这里有一个标记。</p>
+<p>锚点用name属性来设置，一个a标签如果name属性（或者id属性），那么就是页面的一个锚点。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">name</span>=<span class="string">"wdzp"</span>&gt;</span>我的作品<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">或者：</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"wdzp"</span>&gt;</span>我的作品<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>页面内锚点</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#gzjy"</span>&gt;</span>点击我就查看工作经验<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#wdzp"</span>&gt;</span>点击我就查看我的作品<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>个人简介<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>基本信息<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>基本信息<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"gzjy"</span>&gt;</span>工作经验<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>工作经验<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">name</span>=<span class="string">"wdzp"</span>&gt;</span>我的作品<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>作品展示<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>跨页面锚点</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"11_页面内锚点.html#gzjy"</span>&gt;</span>查看小明同学的工作经验<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="a是一个文本级的标签"><a href="#a是一个文本级的标签" class="headerlink" title="a是一个文本级的标签"></a>a是一个文本级的标签</h3><p>比如一个段落中的所有文字都能够被点击，那么应该：</p>
+<p>p包裹a：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>段落<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>而不是a包裹p：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">		段落</span><br><span class="line">	<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>a的语义要小于p，a就是可以当做文本来处理，所以p里面相当于放的就是纯文字。</p>
+
+      
+    </div>
+
+    
+<div>
+      
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+              -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+        </div>
+    
+</div>
+      
+</div>
+<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/07/10/html2/">浅谈HTML</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 clay-wangzhi 的个人博客">clay-wangzhi</a></p>
+  <p><span>发布时间:</span>2018年07月10日 - 15:07</p>
+  <p><span>最后更新:</span>2018年07月11日 - 22:07</p>
+  <p><span>原始链接:</span><a href="/2018/07/10/html2/" title="浅谈HTML">https://clay-wangzhi.github.io/2018/07/10/html2/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://clay-wangzhi.github.io/2018/07/10/html2/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      
+</div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML/" rel="tag"><i class="fa fa-tag"></i> HTML</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/05/新建博客方法/" rel="next" title="hexo(next)+github博客重建">
+                <i class="fa fa-chevron-left"></i> hexo(next)+github博客重建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/10/css1/" rel="prev" title="浅谈CSS（列表、div、span）">
+                浅谈CSS（列表、div、span） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/go_logo.png"
+                alt="clay-wangzhi" />
+            
+              <p class="site-author-name" itemprop="name">clay-wangzhi</p>
+              <p class="site-description motion-element" itemprop="description">区块链、Linux、前端相关技术</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">82</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:clay.wangzhi@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-linux"></i>
+                Linux加油站
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://man.linuxde.net/" title="Linux命令大全" target="_blank">Linux命令大全</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML初识"><span class="nav-number">1.</span> <span class="nav-text">HTML初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网页的原理"><span class="nav-number">1.1.</span> <span class="nav-text">网页的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纯文本文件"><span class="nav-number">1.2.</span> <span class="nav-text">纯文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML"><span class="nav-number">1.3.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html"><span class="nav-number">1.4.</span> <span class="nav-text">.html</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML骨架"><span class="nav-number">2.</span> <span class="nav-text">HTML骨架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文档声明头"><span class="nav-number">2.1.</span> <span class="nav-text">文档声明头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符集"><span class="nav-number">2.2.</span> <span class="nav-text">字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#title标签"><span class="nav-number">2.3.</span> <span class="nav-text">title标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML的基本语法特性"><span class="nav-number">3.</span> <span class="nav-text">HTML的基本语法特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML对换行不敏感，对tab不敏感"><span class="nav-number">3.1.</span> <span class="nav-text">HTML对换行不敏感，对tab不敏感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空白折叠现象"><span class="nav-number">3.2.</span> <span class="nav-text">空白折叠现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签要严格封闭"><span class="nav-number">3.3.</span> <span class="nav-text">标签要严格封闭</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#h和p标签"><span class="nav-number">4.</span> <span class="nav-text">h和p标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#h系列"><span class="nav-number">4.1.</span> <span class="nav-text">h系列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#p标签"><span class="nav-number">4.2.</span> <span class="nav-text">p标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">5.</span> <span class="nav-text">图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#能用的图片类型"><span class="nav-number">5.1.</span> <span class="nav-text">能用的图片类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">5.2.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alt属性"><span class="nav-number">5.3.</span> <span class="nav-text">alt属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超级链接"><span class="nav-number">6.</span> <span class="nav-text">超级链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本写法"><span class="nav-number">6.1.</span> <span class="nav-text">基本写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a标签的另外两个属性"><span class="nav-number">6.2.</span> <span class="nav-text">a标签的另外两个属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面内的锚点"><span class="nav-number">6.3.</span> <span class="nav-text">页面内的锚点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a是一个文本级的标签"><span class="nav-number">6.4.</span> <span class="nav-text">a是一个文本级的标签</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">clay-wangzhi</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">326k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">4:57</span>
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
