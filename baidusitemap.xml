@@ -3,11 +3,9 @@
 
 
     
-    
-    
   <url>
     <loc>https://clay-wangzhi.github.io/2018/07/31/go_day4/</loc>
-    <lastmod>2018-07-31T10:59:40.412Z</lastmod>
+    <lastmod>2018-08-06T10:02:08.688Z</lastmod>
     <data>
         <display>
         <title>go语言学习day4（函数、工程管理、数据格式）</title>
@@ -24,6 +22,28 @@
     </data>
     </url>
 
+    
+  <url>
+    <loc>https://clay-wangzhi.github.io/2018/07/27/go_day1/</loc>
+    <lastmod>2018-08-05T00:46:21.279Z</lastmod>
+    <data>
+        <display>
+        <title>go语言学习day1（初始Go语言、注释、变量）</title>
+        <pubTime>2018-07-27T12:00:00.000Z</pubTime>
+        
+        <tag>Go</tag>
+         
+         
+           
+             
+              <breadCrumb title="区块链" url="https://clay-wangzhi.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
     
   <url>
     <loc>https://clay-wangzhi.github.io/2018/07/30/go_day3/</loc>
@@ -52,26 +72,6 @@
         <display>
         <title>go语言学习day2（基础数据类型、常量、运算符）</title>
         <pubTime>2018-07-28T10:30:00.000Z</pubTime>
-        
-        <tag>Go</tag>
-         
-         
-           
-             
-              <breadCrumb title="区块链" url="https://clay-wangzhi.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://clay-wangzhi.github.io/2018/07/27/go_day1/</loc>
-    <lastmod>2018-07-28T10:34:03.992Z</lastmod>
-    <data>
-        <display>
-        <title>go语言学习day1（GO语言介绍、注释、变量）</title>
-        <pubTime>2018-07-27T12:00:00.000Z</pubTime>
         
         <tag>Go</tag>
          
