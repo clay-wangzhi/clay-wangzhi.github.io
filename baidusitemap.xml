@@ -4,19 +4,19 @@
 
     
   <url>
-    <loc>https://clay-wangzhi.github.io/2018/07/31/go_day5/</loc>
-    <lastmod>2018-08-06T12:33:08.144Z</lastmod>
+    <loc>https://clay-wangzhi.github.io/2016/06/07/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4%EF%BC%881%EF%BC%89-ls/</loc>
+    <lastmod>2018-08-18T11:24:18.979Z</lastmod>
     <data>
         <display>
-        <title>go语言学习day5（整理心情--数据格式）</title>
-        <pubTime>2018-07-31T10:30:00.000Z</pubTime>
+        <title>每天一个linux命令（1）-ls</title>
+        <pubTime>2016-06-07T10:30:00.000Z</pubTime>
         
-        <tag>Go</tag>
+        <tag>linux常用命令</tag>
          
          
            
              
-              <breadCrumb title="区块链" url="https://clay-wangzhi.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+              <breadCrumb title="Linux" url="https://clay-wangzhi.github.io/categories/Linux/"/>
           
         </display>
     </data>
@@ -24,19 +24,19 @@
 
     
   <url>
-    <loc>https://clay-wangzhi.github.io/2018/07/31/go_day4/</loc>
-    <lastmod>2018-08-06T10:02:08.688Z</lastmod>
+    <loc>https://clay-wangzhi.github.io/2016/06/06/%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2018-08-18T11:15:22.286Z</lastmod>
     <data>
         <display>
-        <title>go语言学习day4（函数、工程管理、数据格式）</title>
-        <pubTime>2018-07-31T10:30:00.000Z</pubTime>
+        <title>hexo(next)+github博客的搭建</title>
+        <pubTime>2016-06-06T06:00:00.000Z</pubTime>
         
-        <tag>Go</tag>
+        <tag>博客</tag>
          
          
            
              
-              <breadCrumb title="区块链" url="https://clay-wangzhi.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+              <breadCrumb title="前端" url="https://clay-wangzhi.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
           
         </display>
     </data>
@@ -44,65 +44,25 @@
 
     
   <url>
-    <loc>https://clay-wangzhi.github.io/2018/07/27/go_day1/</loc>
-    <lastmod>2018-08-05T00:46:21.279Z</lastmod>
+    <loc>https://clay-wangzhi.github.io/2018/05/01/html2/</loc>
+    <lastmod>2018-08-18T09:00:30.952Z</lastmod>
     <data>
         <display>
-        <title>go语言学习day1（初始Go语言、注释、变量）</title>
-        <pubTime>2018-07-27T12:00:00.000Z</pubTime>
+        <title>HTML随笔</title>
+        <pubTime>2018-05-01T07:00:00.000Z</pubTime>
         
-        <tag>Go</tag>
+        <tag>HTML</tag>
          
          
            
              
-              <breadCrumb title="区块链" url="https://clay-wangzhi.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+              <breadCrumb title="前端" url="https://clay-wangzhi.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
           
         </display>
     </data>
     </url>
 
     
-    
-  <url>
-    <loc>https://clay-wangzhi.github.io/2018/07/30/go_day3/</loc>
-    <lastmod>2018-07-30T12:56:16.913Z</lastmod>
-    <data>
-        <display>
-        <title>go语言学习day3（流程控制、函数）</title>
-        <pubTime>2018-07-30T10:30:00.000Z</pubTime>
-        
-        <tag>Go</tag>
-         
-         
-           
-             
-              <breadCrumb title="区块链" url="https://clay-wangzhi.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://clay-wangzhi.github.io/2018/07/28/go_day2/</loc>
-    <lastmod>2018-07-28T12:36:35.771Z</lastmod>
-    <data>
-        <display>
-        <title>go语言学习day2（基础数据类型、常量、运算符）</title>
-        <pubTime>2018-07-28T10:30:00.000Z</pubTime>
-        
-        <tag>Go</tag>
-         
-         
-           
-             
-              <breadCrumb title="区块链" url="https://clay-wangzhi.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>https://clay-wangzhi.github.io/2018/07/27/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4%EF%BC%8857%EF%BC%89-wget/</loc>
@@ -1225,26 +1185,6 @@
 
     
   <url>
-    <loc>https://clay-wangzhi.github.io/2018/07/27/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4%EF%BC%881%EF%BC%89-ls/</loc>
-    <lastmod>2018-07-27T11:14:41.069Z</lastmod>
-    <data>
-        <display>
-        <title>每天一个linux命令（1）-ls</title>
-        <pubTime>2018-07-27T10:30:00.000Z</pubTime>
-        
-        <tag>linux常用命令</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://clay-wangzhi.github.io/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://clay-wangzhi.github.io/2018/07/27/awk%EF%BC%884%EF%BC%89/</loc>
     <lastmod>2018-07-27T11:05:20.006Z</lastmod>
     <data>
@@ -1358,26 +1298,6 @@
            
              
               <breadCrumb title="Linux" url="https://clay-wangzhi.github.io/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://clay-wangzhi.github.io/2018/07/27/%E6%9D%A5%E9%BB%91%E9%A9%AC%E4%BD%93%E9%AA%8C/</loc>
-    <lastmod>2018-07-27T10:55:15.819Z</lastmod>
-    <data>
-        <display>
-        <title>区块链培训初感</title>
-        <pubTime>2018-07-27T09:00:00.000Z</pubTime>
-        
-        <tag>日常感悟</tag>
-         
-         
-           
-             
-              <breadCrumb title="区块链" url="https://clay-wangzhi.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
           
         </display>
     </data>
@@ -1593,66 +1513,6 @@
         <pubTime>2018-07-10T08:00:00.000Z</pubTime>
         
         <tag>CSS</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://clay-wangzhi.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://clay-wangzhi.github.io/2018/07/10/html2/</loc>
-    <lastmod>2018-07-11T14:35:06.577Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈HTML</title>
-        <pubTime>2018-07-10T07:00:00.000Z</pubTime>
-        
-        <tag>HTML</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://clay-wangzhi.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://clay-wangzhi.github.io/2018/07/05/%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2018-07-10T14:39:48.517Z</lastmod>
-    <data>
-        <display>
-        <title>hexo(next)+github博客重建</title>
-        <pubTime>2018-07-05T06:00:00.000Z</pubTime>
-        
-        <tag>博客</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://clay-wangzhi.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://clay-wangzhi.github.io/2018/07/05/%E5%8D%9A%E5%AE%A2%E8%A2%AB%E7%8E%A9%E5%9D%8F%E5%BF%83%E5%BE%97/</loc>
-    <lastmod>2018-07-08T07:29:42.067Z</lastmod>
-    <data>
-        <display>
-        <title>博客被玩坏心得</title>
-        <pubTime>2018-07-05T02:00:00.000Z</pubTime>
-        
-        <tag>博客</tag>
          
          
            

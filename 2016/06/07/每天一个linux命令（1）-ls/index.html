@@ -159,25 +159,25 @@
 
 
 
-  <meta name="description" content="好了，以前的博客整理了一部分，先放一放吧，现在开始总结今天学的go的相关知识，当然第一天主要以简单介绍为主，let’s go！">
-<meta name="keywords" content="Go">
+  <meta name="description" content="ls命令时linux下最常用的命令。ls命令就是list的缩写，缺省下ls用来打印出当前目录的清单，如果ls指定其他目录，那么就会显示指定目录里的文件及文件夹清单。 通过ls命令不仅可以查看linux文件夹包含的文件，而且可以查看文件权限（包括目录、文件夹、文件权限），查看目录信息等等。">
+<meta name="keywords" content="linux常用命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="go语言学习day1（初始Go语言、注释、变量）">
-<meta property="og:url" content="https://clay-wangzhi.github.io/2018/07/27/go_day1/index.html">
+<meta property="og:title" content="每天一个linux命令（1）-ls">
+<meta property="og:url" content="https://clay-wangzhi.github.io/2016/06/07/每天一个linux命令（1）-ls/index.html">
 <meta property="og:site_name" content="Clay&#39;s Blog">
-<meta property="og:description" content="好了，以前的博客整理了一部分，先放一放吧，现在开始总结今天学的go的相关知识，当然第一天主要以简单介绍为主，let’s go！">
+<meta property="og:description" content="ls命令时linux下最常用的命令。ls命令就是list的缩写，缺省下ls用来打印出当前目录的清单，如果ls指定其他目录，那么就会显示指定目录里的文件及文件夹清单。 通过ls命令不仅可以查看linux文件夹包含的文件，而且可以查看文件权限（包括目录、文件夹、文件权限），查看目录信息等等。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-05T00:46:21.279Z">
+<meta property="og:updated_time" content="2018-08-18T11:24:18.979Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="go语言学习day1（初始Go语言、注释、变量）">
-<meta name="twitter:description" content="好了，以前的博客整理了一部分，先放一放吧，现在开始总结今天学的go的相关知识，当然第一天主要以简单介绍为主，let’s go！">
+<meta name="twitter:title" content="每天一个linux命令（1）-ls">
+<meta name="twitter:description" content="ls命令时linux下最常用的命令。ls命令就是list的缩写，缺省下ls用来打印出当前目录的清单，如果ls指定其他目录，那么就会显示指定目录里的文件及文件夹清单。 通过ls命令不仅可以查看linux文件夹包含的文件，而且可以查看文件权限（包括目录、文件夹、文件权限），查看目录信息等等。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://clay-wangzhi.github.io/2018/07/27/go_day1/"/>
+  <link rel="canonical" href="https://clay-wangzhi.github.io/2016/06/07/每天一个linux命令（1）-ls/"/>
 
 
 
@@ -187,7 +187,7 @@
   };
 </script>
 
-  <title>go语言学习day1（初始Go语言、注释、变量） | Clay's Blog</title>
+  <title>每天一个linux命令（1）-ls | Clay's Blog</title>
   
 
 
@@ -281,7 +281,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">9</span></a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">7</span></a>
   </li>
         
         
@@ -289,7 +289,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">3</span></a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">2</span></a>
   </li>
         
         
@@ -297,7 +297,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">83</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">76</span></a>
   </li>
 
       
@@ -390,11 +390,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://clay-wangzhi.github.io/2018/07/27/go_day1/">
+    <link itemprop="mainEntityOfPage" href="https://clay-wangzhi.github.io/2016/06/07/每天一个linux命令（1）-ls/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="clay-wangzhi">
-      <meta itemprop="description" content="区块链、Linux、前端相关技术">
+      <meta itemprop="name" content="clay">
+      <meta itemprop="description" content="区块链、Linux、前端等相关技术">
       <meta itemprop="image" content="/images/go_logo.png">
     </span>
 
@@ -407,7 +407,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">go语言学习day1（初始Go语言、注释、变量）
+          <h2 class="post-title" itemprop="name headline">每天一个linux命令（1）-ls
               
             
           </h2>
@@ -432,7 +432,7 @@
                 
               
 
-              <time title="创建时间：2018-07-27 20:00:00" itemprop="dateCreated datePublished" datetime="2018-07-27T20:00:00+08:00">2018-07-27</time>
+              <time title="创建时间：2016-06-07 18:30:00" itemprop="dateCreated datePublished" datetime="2016-06-07T18:30:00+08:00">2016-06-07</time>
             
 
             
@@ -449,7 +449,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-05 08:46:21" itemprop="dateModified" datetime="2018-08-05T08:46:21+08:00">2018-08-05</time>
+                <time title="修改时间：2018-08-18 19:24:18" itemprop="dateModified" datetime="2018-08-18T19:24:18+08:00">2018-08-18</time>
               
             
           </span>
@@ -466,7 +466,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/区块链/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
 
                 
                 
@@ -482,6 +482,14 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
             <div class="post-symbolscount">
@@ -494,7 +502,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2k</span>
+                <span title="本文字数">2.3k</span>
               
 
               
@@ -528,54 +536,43 @@
       
 
       
-        <p>好了，以前的博客整理了一部分，先放一放吧，现在开始总结今天学的go的相关知识，当然第一天主要以简单介绍为主，let’s go！</p>
+        <p>ls命令时linux下最常用的命令。ls命令就是list的缩写，缺省下ls用来打印出当前目录的清单，如果ls指定其他目录，那么就会显示指定目录里的文件及文件夹清单。</p>
+<p>通过ls命令不仅可以查看linux文件夹包含的文件，而且可以查看文件权限（包括目录、文件夹、文件权限），查看目录信息等等。</p>
 <a id="more"></a>
-<h2 id="初始Go语言"><a href="#初始Go语言" class="headerlink" title="初始Go语言"></a>初始Go语言</h2><h3 id="GO语言介绍"><a href="#GO语言介绍" class="headerlink" title="GO语言介绍"></a>GO语言介绍</h3><h4 id="GO语言是什么"><a href="#GO语言是什么" class="headerlink" title="GO语言是什么"></a>GO语言是什么</h4><p>​    “Go是一种开源的程序设计语言，它意在使得人们能够方便地构建简单、可靠、高效率的软件”（来自go官网golang.org）。 </p>
-<p>​    GO 语言借鉴了Python等其它编程语言简单，易学，生产效率高，同时GO语言专门针对多处理器，系统的程序进行了优化（让每核CPU都能够执行GO语言开发的程序），这样使用GO语言开发的程序运行的速度可以媲美C或C++开发程序的速度。</p>
-<h4 id="GO语言优势"><a href="#GO语言优势" class="headerlink" title="GO语言优势"></a>GO语言优势</h4><ul>
-<li><p>运行速度快，简单易学</p>
-</li>
-<li><p>跨平台</p>
-</li>
-<li><p>丰富的标准库（指令），Go目前已经内置了大量的库 ，特别是网络库非常强大</p>
-</li>
-<li><p>Go里面也可以直接包含C代码，利用现有的丰富的C库</p>
-</li>
-<li><p>语言层面支持并发</p>
-</li>
-</ul>
-<h4 id="GO语言能干什么"><a href="#GO语言能干什么" class="headerlink" title="GO语言能干什么"></a>GO语言能干什么</h4><ul>
-<li>网络编程，这一块目前应用最广，例如：网站开发</li>
-<li>服务器编程，例如：处理日志，处理文件。</li>
-<li>区块链开发</li>
-</ul>
-<h3 id="第一个GO程序"><a href="#第一个GO程序" class="headerlink" title="第一个GO程序"></a>第一个GO程序</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//程序所属包</span></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="comment">//导入系统fmt包 format 格式化  导入格式化输入输出包</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//func 函数格式  main  函数名  程序有且只有一个主函数（main）main 是程序的住入口</span></span><br><span class="line"><span class="comment">//()括起来的成为函数的参数列表 可以是0个 也可以是多个 （变量名 数据类型, 变量名 数据类型）&#123;&#125;代码体 程序体 函数体</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//在代码中 一条语句可以写在多行  但是多条语句不能写在一行</span></span><br><span class="line">	<span class="comment">//打印输出 fmt.Println  ""引起来的成为字符串</span></span><br><span class="line">	fmt.Println(<span class="string">"hello world!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h3><p><a href="https://golang.org/" target="_blank" rel="noopener">Go语言官网（需要翻墙）</a></p>
-<p><a href="https://studygolang.com" target="_blank" rel="noopener">go中文社区</a></p>
-<p><a href="https://studygoland.com/pkgdoc" target="_blank" rel="noopener">go中文在线文档</a></p>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmt.Println(<span class="string">"hello go"</span>) <span class="comment">//将信息输出到屏幕上。</span></span><br></pre></td></tr></table></figure>
-<p>以//开头，//右边的所有东西当做说明，而不是真正要执行的程序，起辅助说明作用。</p>
-<h3 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    zhushi </span></span><br><span class="line"><span class="comment">    zhushi </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    fmt.Println(<span class="string">"hello go"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>/<em>,\</em>/进行块注释</p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>所谓声明变量就是创建一个变量，并且指定该变量存储什么类型的数据。</p>
-<p>Go语言引入了关键字var，而类型信息放在变量名之后，示例如下：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"测试变量定义"</span>)</span><br><span class="line">    <span class="comment">//1、声明格式 var 变量名 类型，变量声明了，必须要使用</span></span><br><span class="line">    <span class="comment">//2、声明整形变量，该变量默认值为0</span></span><br><span class="line">    <span class="comment">//3、同一个&#123;&#125;里，声明的变量名是唯一的</span></span><br><span class="line">    <span class="keyword">var</span> a <span class="keyword">int</span></span><br><span class="line">    fmt.Println(<span class="string">"a = "</span>, a)</span><br><span class="line">    <span class="comment">//4、可以同时声明多个变量，中间用逗号隔开</span></span><br><span class="line">    <span class="keyword">var</span> b, c <span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b <span class="keyword">int</span> = <span class="number">10</span></span><br><span class="line">fmt.Println(b)</span><br></pre></td></tr></table></figure>
-<p>注意：在这里我们将”=”符号，读作“赋值号”，不能读作“等号” 。</p>
-<h3 id="自动化推导类型"><a href="#自动化推导类型" class="headerlink" title="自动化推导类型"></a>自动化推导类型</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num := <span class="number">30</span></span><br><span class="line">fmt.Println(num)</span><br></pre></td></tr></table></figure>
-<p>所谓自动推导类型，就是不用通过var 声明变量，不用指定类型，直接在变量名后面跟”:”号，同时完成赋值。那么GO会根据所赋的值自动推导出变量的类型。如果给num变量赋值为小数，那么该变量的类型为小数类型（浮点）。</p>
-<p>通过比较，我们发现这种方式比前面的赋值方式要简单方便。这种方式，也是我们以后开发过程中最常用的方式。</p>
-<h3 id="多重赋值匿名变量"><a href="#多重赋值匿名变量" class="headerlink" title="多重赋值匿名变量"></a>多重赋值匿名变量</h3><ul>
-<li>多重赋值</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a, b, c := <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></span><br><span class="line">fmt.Println(a, b, c)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>匿名变量</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_, i, _, j := <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span></span><br></pre></td></tr></table></figure>
-<h3 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a, b, c := <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></span><br><span class="line">    fmt.Printf(<span class="string">"a=%d, b=%d, c=%d\n"</span>, a, b, c)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="接收输入"><a href="#接收输入" class="headerlink" title="接收输入"></a>接收输入</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> age <span class="keyword">int</span></span><br><span class="line">    fmt.Println(<span class="string">"请输入你的年龄"</span>)</span><br><span class="line">    fmt.Scan(&amp;age)</span><br><span class="line">    fmt.Printf(<span class="string">"a=%d"</span>, age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="变量命名规范"><a href="#变量命名规范" class="headerlink" title="变量命名规范"></a>变量命名规范</h3><p>变量（标识符）命名规则：<br>1、可以使用字母 数字 下划线<br>2、不允许使用数字开头<br>3、不允许使用系统关键字<br>4、区分大小写<br>5、见名知义</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p><code>ls (选项) （参数）</code></p>
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><p>常用选项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-a：显示所有档案及目录（ls内定将档案名或目录名称为“.”的视为影藏，不会列出）；</span><br><span class="line">-l：以长格式显示目录下的内容列表。输出的信息从左到右依次包括文件名，文件类型、权限模式、硬连接数、所有者、组、文件大小和文件的最后修改时间等；</span><br><span class="line">-h:–human-readable 以容易理解的格式列出文件大小 (例如 1K 234M 2G);</span><br><span class="line">-s：显示文件和目录的大小，以区块为单位；</span><br><span class="line">-t：用文件和目录的更改时间排序；</span><br><span class="line">-r：以文件名反序排列并输出目录内容列表；</span><br><span class="line">-d：仅显示目录名，而不显示目录下的内容列表。显示符号链接文件本身，而不显示其所指向的目录列表；</span><br><span class="line">-R：递归处理，将指定目录下的所有文件及子目录一并处理；</span><br><span class="line">--color[=WHEN]：使用不同的颜色高亮显示不同类型的。</span><br></pre></td></tr></table></figure>
+<p>其他选项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">-A：显示除影藏文件“.”和“..”以外的所有文件列表；</span><br><span class="line">-C：多列显示输出结果。这是默认选项；</span><br><span class="line">-F：在每个输出项后追加文件的类型标识符，具体含义：“*”表示具有可执行权限的普通文件，“/”表示目录，“@”表示符号链接，“|”表示命令管道FIFO，“=”表示sockets套接字。当文件为普通文件时，不输出任何标识符；</span><br><span class="line">-b：将文件中的不可输出的字符以反斜线“”加字符编码的方式输出；</span><br><span class="line">-f：此参数的效果和同时指定“aU”参数相同，并关闭“lst”参数的效果；</span><br><span class="line">-i：显示文件索引节点号（inode）。一个索引节点代表一个文件；</span><br><span class="line">-k：以KB（千字节）为单位显示文件大小；</span><br><span class="line">-m：用“,”号区隔每个文件和目录的名称；-</span><br><span class="line">-n：以用户识别码和群组识别码替代其名称；</span><br><span class="line">-L：如果遇到性质为符号链接的文件或目录，直接列出该链接所指向的原始文件或目录；</span><br><span class="line">-c：与“-lt”选项连用时，按照文件状态时间排序输出目录内容，排序的依据是文件的索引节点中的ctime字段,与“-l”选项连用时，则排序的一句是文件的状态改变时间；</span><br><span class="line">--file-type：与“-F”选项的功能相同，但是不显示“*”；</span><br><span class="line">--full-time：列出完整的日期与时间；</span><br><span class="line">–-help 显示此帮助信息</span><br><span class="line">–-version 显示版本信息</span><br></pre></td></tr></table></figure>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>目录：指定要显示列表的目录，也可以是具体的文件。</p>
+<h2 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h2><p>1）列出/opt文件夹下的所有文件和目录的详细资料</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ls -l -R /opt/</span><br></pre></td></tr></table></figure>
+<p>在使用 ls 命令时要注意命令的格式：在命令提示符后，首先是命令的关键字，接下来是命令参数，在命令参数之前要有一短横线“-”，所有的命令参数都有特定的作用，自己可以根据需要选用一个或者多个参数，在命令参数的后面是命令的操作对象。在以上这条命令“ ls -l -R /home/peidachang”中，“ls” 是命令关键字，“-l -R”是参数，“ /home/peidachang”是命令的操作对象。在这条命令中，使用到了两个参数，分别为“l”和“R”，当然，你也可以把他们放在一起使用，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lR /opt</span><br></pre></td></tr></table></figure>
+<p>2）列出当前目录中所有以“t”开头的目录的详细内容，可以使用如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#ls -l t*</span><br></pre></td></tr></table></figure>
+<p>可以查看当前目录下文件名以“t”开头的所有文件的信息。其实，在命令格式中，方括号内的内容都是可以省略的，对于命令ls而言，如果省略命令参数和操作对象，直接输入“ ls ”，则将会列出当前工作目录的内容清单。</p>
+<p>3）列出目前工作目录下所有名称是s 开头的档案，愈新的排愈后面，可以使用如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#ls -ltr s*</span><br></pre></td></tr></table></figure>
+<p>4）列出目前工作目录下所有档案及目录;目录于名称后加”/“, 可执行档于名称后加”*“ </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ls -AF</span><br></pre></td></tr></table></figure>
+<p>5）计算当前目录下的文件数和目录数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -l * |grep &quot;^-&quot;|wc -l ---文件个数  </span><br><span class="line">ls -l * |grep &quot;^d&quot;|wc -l    ---目录个数</span><br></pre></td></tr></table></figure>
+<p>6）在ls中列出文件的绝对路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls | sed &quot;s:^:`pwd`/:&quot;</span><br></pre></td></tr></table></figure>
+<p>7）列出当前目录下的所有文件（包括隐藏文件）的绝对路径， 对目录不做递归</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find $PWD -maxdepth 1 | xargs ls -ld</span><br></pre></td></tr></table></figure>
+<p>8）递归列出当前目录下的所有文件（包括隐藏文件）的绝对路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find $PWD | xargs ls -ld</span><br></pre></td></tr></table></figure>
+<p>9）指定文件时间输出格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -tl --time-style=full-iso </span><br><span class="line">ls -ctl --time-style=long-iso</span><br></pre></td></tr></table></figure>
+<p>10）列出文件并标记颜色分类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls --color=auto</span><br></pre></td></tr></table></figure>
+<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><p>蓝色—–目录<br>绿色—–可执行文件<br>白色—–一般性文件，如文本文件，配置文件等<br>红色—–压缩文件或归档文件<br>浅蓝色—-链接文件<br>红色闪烁—-链接文件存在问题<br>黄色—–设备文件<br>青黄色—-管道文件 </p>
+<p>参考链接：</p>
+<p><a href="http://man.linuxde.net/ls" target="_blank" rel="noopener">http://man.linuxde.net/ls</a></p>
+<p><a href="http://www.9usb.net/201005/linux-ls.html" target="_blank" rel="noopener">http://www.9usb.net/201005/linux-ls.html</a></p>
+<p><a href="http://www.cnblogs.com/peida/archive/2012/10/23/2734829.html" target="_blank" rel="noopener">http://www.cnblogs.com/peida/archive/2012/10/23/2734829.html</a></p>
 
       
     </div>
@@ -601,12 +598,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/07/27/go_day1/">go语言学习day1（初始Go语言、注释、变量）</a></p>
-  <p><span>文章作者:</span><a href="/" title="访问 clay-wangzhi 的个人博客">clay-wangzhi</a></p>
-  <p><span>发布时间:</span>2018年07月27日 - 20:07</p>
-  <p><span>最后更新:</span>2018年08月05日 - 08:08</p>
-  <p><span>原始链接:</span><a href="/2018/07/27/go_day1/" title="go语言学习day1（初始Go语言、注释、变量）">https://clay-wangzhi.github.io/2018/07/27/go_day1/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://clay-wangzhi.github.io/2018/07/27/go_day1/"  aria-label="复制成功！"></i></span>
+  <p><span>本文标题:</span><a href="/2016/06/07/每天一个linux命令（1）-ls/">每天一个linux命令（1）-ls</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 clay 的个人博客">clay</a></p>
+  <p><span>发布时间:</span>2016年06月07日 - 18:06</p>
+  <p><span>最后更新:</span>2018年08月18日 - 19:08</p>
+  <p><span>原始链接:</span><a href="/2016/06/07/每天一个linux命令（1）-ls/" title="每天一个linux命令（1）-ls">https://clay-wangzhi.github.io/2016/06/07/每天一个linux命令（1）-ls/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://clay-wangzhi.github.io/2016/06/07/每天一个linux命令（1）-ls/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -640,7 +637,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+            <a href="/tags/linux常用命令/" rel="tag"><i class="fa fa-tag"></i> linux常用命令</a>
           
         </div>
       
@@ -653,8 +650,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/27/每天一个linux命令（57）-wget/" rel="next" title="每天一个linux命令（57）-wget">
-                <i class="fa fa-chevron-left"></i> 每天一个linux命令（57）-wget
+              <a href="/2016/06/06/新建博客方法/" rel="next" title="hexo(next)+github博客的搭建">
+                <i class="fa fa-chevron-left"></i> hexo(next)+github博客的搭建
               </a>
             
           </div>
@@ -663,8 +660,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/28/go_day2/" rel="prev" title="go语言学习day2（基础数据类型、常量、运算符）">
-                go语言学习day2（基础数据类型、常量、运算符） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/01/html2/" rel="prev" title="HTML随笔">
+                HTML随笔 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -730,10 +727,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/images/go_logo.png"
-                alt="clay-wangzhi" />
+                alt="clay" />
             
-              <p class="site-author-name" itemprop="name">clay-wangzhi</p>
-              <p class="site-description motion-element" itemprop="description">区块链、Linux、前端相关技术</p>
+              <p class="site-author-name" itemprop="name">clay</p>
+              <p class="site-description motion-element" itemprop="description">区块链、Linux、前端等相关技术</p>
           </div>
 
           
@@ -743,7 +740,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">83</span>
+                    <span class="site-state-item-count">76</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -760,9 +757,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -789,11 +784,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -852,7 +843,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始Go语言"><span class="nav-number">1.</span> <span class="nav-text">初始Go语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GO语言介绍"><span class="nav-number">1.1.</span> <span class="nav-text">GO语言介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GO语言是什么"><span class="nav-number">1.1.1.</span> <span class="nav-text">GO语言是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GO语言优势"><span class="nav-number">1.1.2.</span> <span class="nav-text">GO语言优势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GO语言能干什么"><span class="nav-number">1.1.3.</span> <span class="nav-text">GO语言能干什么</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个GO程序"><span class="nav-number">1.2.</span> <span class="nav-text">第一个GO程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习资料"><span class="nav-number">1.3.</span> <span class="nav-text">学习资料</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">2.</span> <span class="nav-text">注释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单行注释"><span class="nav-number">2.1.</span> <span class="nav-text">单行注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多行注释"><span class="nav-number">2.2.</span> <span class="nav-text">多行注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">3.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量初始化"><span class="nav-number">3.1.</span> <span class="nav-text">变量初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动化推导类型"><span class="nav-number">3.2.</span> <span class="nav-text">自动化推导类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多重赋值匿名变量"><span class="nav-number">3.3.</span> <span class="nav-text">多重赋值匿名变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化输出"><span class="nav-number">3.4.</span> <span class="nav-text">格式化输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收输入"><span class="nav-number">3.5.</span> <span class="nav-text">接收输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量命名规范"><span class="nav-number">3.6.</span> <span class="nav-text">变量命名规范</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选项"><span class="nav-number">2.</span> <span class="nav-text">选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数"><span class="nav-number">3.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用范例"><span class="nav-number">4.</span> <span class="nav-text">常用范例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色"><span class="nav-number">5.</span> <span class="nav-text">颜色</span></a></li></ol></div>
             
 
           </div>
@@ -883,7 +874,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">clay-wangzhi</span>
+  <span class="author" itemprop="copyrightHolder">clay</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -893,7 +884,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">332k</span>
+    <span title="站点总字数">307k</span>
   
 
   
@@ -904,7 +895,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">5:02</span>
+    <span title="站点阅读时长">4:39</span>
   
 </div>
 
@@ -921,6 +912,24 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
