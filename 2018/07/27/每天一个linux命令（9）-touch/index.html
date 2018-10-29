@@ -167,7 +167,7 @@
 <meta property="og:site_name" content="Clay&#39;s Blog">
 <meta property="og:description" content="linux的touch命令不常用，一般在使用make的时候可能会用到，用来修改文件时间戳，或者新建一个不存在的文件。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-27T11:15:52.856Z">
+<meta property="og:updated_time" content="2018-10-29T02:54:17.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每天一个linux命令（9）-touch">
 <meta name="twitter:description" content="linux的touch命令不常用，一般在使用make的时候可能会用到，用来修改文件时间戳，或者新建一个不存在的文件。">
@@ -394,7 +394,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="clay">
-      <meta itemprop="description" content="区块链、Linux、前端等相关技术">
+      <meta itemprop="description" content="Linux、运维、前端等相关技术">
       <meta itemprop="image" content="/images/go_logo.png">
     </span>
 
@@ -432,12 +432,24 @@
                 
               
 
-              <time title="创建时间：2018-07-27 18:38:00 / 修改时间：19:15:52" itemprop="dateCreated datePublished" datetime="2018-07-27T18:38:00+08:00">2018-07-27</time>
+              <time title="创建时间：2018-07-27 18:38:00" itemprop="dateCreated datePublished" datetime="2018-07-27T18:38:00+08:00">2018-07-27</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-29 10:54:17" itemprop="dateModified" datetime="2018-10-29T10:54:17+08:00">2018-10-29</time>
               
             
           </span>
@@ -482,7 +494,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.9k</span>
+                <span title="本文字数">2k</span>
               
 
               
@@ -533,6 +545,8 @@
 <p>-t  time 使用指定的时间值 time 作为指定文件相应时间戳记的新值．此处的 time规定为如下形式的十进制数:      </p>
 <p>  [[CC]YY]MMDDhhmm[.SS]     </p>
 <p>  这里，CC为年数中的前两位，即”世纪数”；YY为年数的后两位，即某世纪中的年数．如果不给出CC的值，则touch   将把年数CCYY限定在1969–2068之内．MM为月数，DD为天将把年数CCYY限定在1969–2068之内．MM为月数，DD为天数，hh 为小时数(几点)，mm为分钟数，SS为秒数．此处秒的设定范围是0–61，这样可以处理闰秒．这些数字组成的时间是环境变量TZ指定的时区中的一个时 间．由于系统的限制，早于1970年1月1日的时间是错误的。</p>
+<p>4）同时创建多个文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touch file&#123;1..20&#125;</span><br><span class="line">touch /home/&#123;aa,bb&#125;</span><br><span class="line">//&#123;&#125;里面为集合</span><br></pre></td></tr></table></figure>
 <p>参考链接：</p>
 <p><a href="http://www.cnblogs.com/peida/archive/2012/10/30/2745714.html" target="_blank" rel="noopener">http://www.cnblogs.com/peida/archive/2012/10/30/2745714.html</a></p>
 <p><a href="http://man.linuxde.net/touch" target="_blank" rel="noopener">http://man.linuxde.net/touch</a></p>
@@ -564,7 +578,7 @@
   <p><span>本文标题:</span><a href="/2018/07/27/每天一个linux命令（9）-touch/">每天一个linux命令（9）-touch</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 clay 的个人博客">clay</a></p>
   <p><span>发布时间:</span>2018年07月27日 - 18:07</p>
-  <p><span>最后更新:</span>2018年07月27日 - 19:07</p>
+  <p><span>最后更新:</span>2018年10月29日 - 10:10</p>
   <p><span>原始链接:</span><a href="/2018/07/27/每天一个linux命令（9）-touch/" title="每天一个linux命令（9）-touch">https://clay-wangzhi.github.io/2018/07/27/每天一个linux命令（9）-touch/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://clay-wangzhi.github.io/2018/07/27/每天一个linux命令（9）-touch/"  aria-label="复制成功！"></i></span>
   </p>
@@ -693,7 +707,7 @@
                 alt="clay" />
             
               <p class="site-author-name" itemprop="name">clay</p>
-              <p class="site-description motion-element" itemprop="description">区块链、Linux、前端等相关技术</p>
+              <p class="site-description motion-element" itemprop="description">Linux、运维、前端等相关技术</p>
           </div>
 
           
