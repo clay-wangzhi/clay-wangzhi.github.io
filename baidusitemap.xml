@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://clay-wangzhi.github.io/2018/07/27/awk%EF%BC%881%EF%BC%89/</loc>
+    <lastmod>2019-01-28T13:24:18.095Z</lastmod>
+    <data>
+        <display>
+        <title>awk（1）-快速入门（上）</title>
+        <pubTime>2018-07-27T10:23:00.000Z</pubTime>
+        
+        <tag>awk</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://clay-wangzhi.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://clay-wangzhi.github.io/2018/07/27/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4%EF%BC%8838%EF%BC%89-grep/</loc>
     <lastmod>2018-11-01T04:10:59.313Z</lastmod>
     <data>
@@ -1332,26 +1352,6 @@
         <display>
         <title>awk（2）-快速入门（中）</title>
         <pubTime>2018-07-27T10:25:00.000Z</pubTime>
-        
-        <tag>awk</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://clay-wangzhi.github.io/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://clay-wangzhi.github.io/2018/07/27/awk%EF%BC%881%EF%BC%89/</loc>
-    <lastmod>2018-07-27T11:04:30.969Z</lastmod>
-    <data>
-        <display>
-        <title>awk（1）-快速入门（上）</title>
-        <pubTime>2018-07-27T10:23:00.000Z</pubTime>
         
         <tag>awk</tag>
          
