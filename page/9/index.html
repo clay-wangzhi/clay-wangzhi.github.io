@@ -281,7 +281,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">11</span></a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">12</span></a>
   </li>
         
         
@@ -297,7 +297,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">83</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">84</span></a>
   </li>
 
       
@@ -374,6 +374,214 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://clay-wangzhi.github.io/2017/11/28/mysql2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="clay">
+      <meta itemprop="description" content="当你发现自己的才华撑不起野心时，就请安静下来学习吧！">
+      <meta itemprop="image" content="/images/go_logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clay's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/28/mysql2/" itemprop="url">
+                  主库异常，从库手动切换为主库方案
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-28 18:23:00" itemprop="dateCreated datePublished" datetime="2017-11-28T18:23:00+08:00">2017-11-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-29 17:25:25" itemprop="dateModified" datetime="2018-10-29T17:25:25+08:00">2018-10-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">507</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h3 id="1-登录从服务器，确认从服务器已经完成所有同步操作："><a href="#1-登录从服务器，确认从服务器已经完成所有同步操作：" class="headerlink" title="1.登录从服务器，确认从服务器已经完成所有同步操作："></a>1.登录从服务器，确认从服务器已经完成所有同步操作：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; stop slave io_thread  </span><br><span class="line">mysql&gt; show processlist </span><br><span class="line">直到看到状态都为：xxx has read all relay log 表示更新都执行完毕</span><br></pre></td></tr></table></figure>
+<h3 id="2-停止从服务器slave服务："><a href="#2-停止从服务器slave服务：" class="headerlink" title="2.停止从服务器slave服务："></a>2.停止从服务器slave服务：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; stop slave</span><br></pre></td></tr></table></figure>
+<h3 id="3-将从服务器切换为主服务器："><a href="#3-将从服务器切换为主服务器：" class="headerlink" title="3.将从服务器切换为主服务器："></a>3.将从服务器切换为主服务器：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; reset master</span><br></pre></td></tr></table></figure>
+<p>完成切换</p>
+<h3 id="4-授权内网其他机器有写入等权限-如果没有权限的话"><a href="#4-授权内网其他机器有写入等权限-如果没有权限的话" class="headerlink" title="4.授权内网其他机器有写入等权限(如果没有权限的话)"></a>4.授权内网其他机器有写入等权限(如果没有权限的话)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT Host,User FROM mysql.user;</span><br><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;192.168.1.%&apos; IDENTIFIED BY &apos;123456&apos;  WITH GRANT OPTION;</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<h3 id="5-修改其他机器hosts或应用内连接"><a href="#5-修改其他机器hosts或应用内连接" class="headerlink" title="5.修改其他机器hosts或应用内连接"></a>5.修改其他机器hosts或应用内连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># vi /etc/hosts</span><br><span class="line">192.168.1.106 db-001</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+<div>
+      
+</div>
+<div>
+      
+</div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1049,7 +1257,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">83</span>
+                    <span class="site-state-item-count">84</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1101,7 +1309,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1185,7 +1395,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">320k</span>
+    <span title="站点总字数">321k</span>
   
 
   
@@ -1196,7 +1406,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">4:51</span>
+    <span title="站点阅读时长">4:52</span>
   
 </div>
 
@@ -1688,6 +1898,8 @@
 
   
   
+    
+      
     
       
     

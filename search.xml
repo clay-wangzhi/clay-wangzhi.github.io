@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Centos7系统配置国内yum源和epel源]]></title>
+    <url>%2F2019%2F05%2F13%2FCentOS7%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85yum%E6%BA%90%E5%92%8Cepel%E6%BA%90%2F</url>
+    <content type="text"><![CDATA[备份old源123cd /etc/yum.repos.d/mkdir repo_bakmv *.repo repo_bak/ 使用阿里的开源镜像123wget http://mirrors.aliyun.com/repo/Centos-7.repoyum clean allyum makecache 安装阿里epel源1234 wget -O /etc/yum.repos.d/epel-7.repo http://mirrors.aliyun.com/repo/epel-7.repo yum clean allyum makecacheyum repolist]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[TCP三次握手四次挥手]]></title>
     <url>%2F2019%2F04%2F10%2Ftcp%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%2F</url>
     <content type="text"><![CDATA[TCP三次握手与四次挥手 三次握手 解释：]]></content>
